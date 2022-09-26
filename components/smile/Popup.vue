@@ -8,10 +8,11 @@
   <div class="smilePopup">
     <!-- 汉堡按钮 -->
     <div @click="clickHandler">
-      <i class="iconfont icon-emo-happy"></i>
+      <i v-if="showLayer" class="iconfont icon-emo-tongue"></i>
+      <i v-else class="iconfont icon-emo-happy"></i>
     </div>
     <!-- 弹出层 -->
-    <div class="layer" :class="{a:showLayer}">
+    <div class="layer" :class="{open:showLayer}">
       <ul>
         <li v-for="item in navLists" :key="item">{{item}}</li>
       </ul>
@@ -29,16 +30,67 @@ defineProps({
 })
 const showLayer = ref(false)
 const clickHandler = () => {
-
+  showLayer.value = !showLayer.value
 }
 </script>
 <style lang="scss" scoped>
 .smilePopup {
   position: relative;
-  > i {}
+
+  >i {
+    height: 45px;
+  }
+
   .layer {
     position: absolute;
-    width: 100%;
+    top: 35px;
+    left: -10px;
+    // width: 100%;
+    background-color: #fff;
+    height: 0; // 高度0
+    opacity: 0; // 透明度0
+    transition: all .2s .1s;
+    &.open {
+      // .layer.open 交集，添加显示layer弹出层
+      height: 132px;
+      opacity: 1;
+    }
+
+    > :before {
+      content: '';
+      background-color: #fff;
+      width: 10px;
+      height: 10px;
+      border-top: 1px solid;
+      border-right: 1px solid;
+      transform: rotate(-45deg);
+      position: absolute;
+      top: -5px;
+    }
+
+    >ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // justify-items: ;
+      width: 60px;
+      border: 1px solid;
+      border-radius: 0 0 15px 15px;
+
+      li {
+        width: 45px;
+        padding: 5px;
+        text-align: center;
+
+        &:hover {
+          >a {
+            color: green;
+            border-bottom: 1px solid red;
+          }
+        }
+      }
+    }
+
   }
 }
 </style>

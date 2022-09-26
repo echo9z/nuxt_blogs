@@ -27,23 +27,25 @@ a {
   text-decoration: none;
   text-align: center;
   box-sizing: border-box;
-  padding: 3px;
+  padding: 2px;
   border-radius: 6px;
+  overflow: hidden;
   // display: block;
-  width: 80px;
-  height: 40px;
+  // width: 80px;
+  height: 32px;
   position: relative;
   overflow: hidden;
+  border-radius: 15px;
 
   span {
     position: relative;
     z-index: 2;
-    // padding: .875rem 0;
+    padding: 0 .875rem;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
     align-items: center;
     background: #000;
-    border-radius: 3px;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     box-sizing: border-box;
