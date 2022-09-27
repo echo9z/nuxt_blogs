@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     "assets": "/<rootDir>/assets",
     "public": "/<rootDir>/public"
   },
-  css: ["/assets/css/icon.css"],
+  css: ["/assets/css/icon.css", '/assets/css/index.css'],
   modules: [
     ['@vueuse/nuxt'],
     ['@nuxtjs/tailwindcss'],

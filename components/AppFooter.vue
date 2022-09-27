@@ -5,8 +5,11 @@
 * @date 2022/09/25 13:09:37
 !-->
 <template>
-  <div>
-  </div>
+  <footer class="flex content-center flex-col box-border h-[70px] sm:h-[100px] pt-[5px] sm:pt-[20px] text-center bg-black text-indigo-50 text-sm md:text-base">
+    <p>2022 <a href="https://github.com/echo9z">© echo9z</a></p>
+    <p>托管于腾讯云</p>
+    <p>ICP备案：<a href="https://beian.miit.gov.cn/">鄂ICP备2021022049号-1</a></p>
+  </footer>
 </template>
 
 <script lang="ts" setup>

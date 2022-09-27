@@ -46,10 +46,10 @@ const clickHandler = () => {
     top: 35px;
     left: -10px;
     // width: 100%;
-    background-color: #fff;
     height: 0; // 高度0
     opacity: 0; // 透明度0
-    transition: all .2s .1s;
+    transition: all .5s .1s;
+    z-index: 100;
     &.open {
       // .layer.open 交集，添加显示layer弹出层
       height: 132px;
@@ -72,6 +72,7 @@ const clickHandler = () => {
       display: flex;
       flex-direction: column;
       align-items: center;
+      background-color: #fff;
       // justify-items: ;
       width: 60px;
       border: 1px solid;

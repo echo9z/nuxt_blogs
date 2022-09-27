@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 // seo 中title keywords description
 useHead({
-  title: 'echo9z博客_web前端',
+  title: 'echo9z博客-web前端',
   // titleTemplate: (productCategory) => { // 动态标题
   //   return productCategory
   //     ? `${productCategory} - Site Title`

@@ -20,6 +20,7 @@ module.exports = {
   rules: {
     // import引入报错解决
     'no-undef': 'off',
+    'no-unused-vars': 'off',
     // 关闭组件命名规则
     'vue/multi-word-component-names': 'off'
   }

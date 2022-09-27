@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js模仿文字输入特效</title>
+    <style>
+        html body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 文本渐变色 */
+        /* .gradient-text {
+            background-image: linear-gradient(90deg, #f66, #f90);
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-size: 38px;
+            -webkit-animation: hue 5s linear infinite;
+            animation: hue 5s linear infinite;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes hue {
+            from {
+                filter: hue-rotate(0);
+            }
+
+            to {
+                filter: hue-rotate(-1turn);
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="gradient-text">/* <span class="text"></span> */</p>
+    </div>
+</body>
+
+<script>
+
+    var array = [
+        // 'Hello World! Hello World! Hello World!',
+        'Hello, 欢迎来到echo9z的个人博客, 网站功能还未完全开发完毕!',
+        // `Math teacher says "I'm gonna transform!"`
+    ]
+
+    let con = document.getElementsByClassName('text')[0]
+
+    async function Init() {
+        for (let i = 0; i < array.length; i++) {
+            const item = array[i];
+            await start(item)
+            // await back(item)
+        }
+    }
+
+    function start(item) {
+        return new Promise((resolve, reject) => {
+            var index = 0;
+            var start_timer = setInterval(function () {
+                con.append(item.charAt(index));
+                if (index++ === item.length) {
+                    clearInterval(start_timer)
+                    resolve();
+                }
+            }, 100);
+        })
+    }
+
+    function back(item) {
+        return new Promise((resolve, reject) => {
+            var del_timer = setInterval(function () {
+                item = item.slice(0, -1);
+                con.innerHTML = item;
+                if (con.innerHTML.toString().length == 0) {
+                    clearInterval(del_timer)
+                    resolve();
+                }
+            }, 50);
+        })
+    }
+
+    Init()
+</script>
+
+</html>

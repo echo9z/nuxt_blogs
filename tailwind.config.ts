@@ -1,4 +1,5 @@
 import { Config } from 'tailwindcss'
+import colors from 'tailwindcss/colors'
 export default <Config> {
   content: [
     `components/**/*.{vue,js}`,
@@ -9,6 +10,13 @@ export default <Config> {
     `app.{js,ts,vue}`
   ],
   theme: {
+    // colors: {
+    //   transparent: 'transparent',
+    //   current: 'currentColor',
+    //   white: {
+    //     DEFAULT: 'aliceblue',
+    //   }
+    // },
     extend: {},
     container: { // 使容器在默认情况下居中
       center: true,

@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.3.3",
+    "@pinia/nuxt": "^0.4.2",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@vueuse/core": "^9.2.0",
     "@vueuse/nuxt": "^9.2.0",
@@ -19,11 +20,11 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^9.5.1",
     "nuxt": "3.0.0-rc.11",
+    "pinia": "^2.0.22",
     "sass": "^1.55.0",
-    "typescript": "*",
-    "@pinia/nuxt": "^0.4.2",
-    "pinia": "^2.0.22"
+    "typescript": "*"
   },
   "dependencies": {
+    "md-editor-v3": "^2.2.1"
   }
 }
