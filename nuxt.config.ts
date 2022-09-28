@@ -1,5 +1,14 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:18080',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      },
+    }
+  },
   alias: {
     "~": "/<rootDir>",
     "@": "/<rootDir>",

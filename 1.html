@@ -46,9 +46,27 @@
     <div class="container">
         <p class="gradient-text">/* <span class="text"></span> */</p>
     </div>
+
+    <input id="postFile" type="file" name="logo">
+    <button type="button" onclick="upload()">上传</button>
 </body>
 
 <script>
+    const upload = async () => {
+  const body = new FormData()
+  const file = document.getElementById('postFile').files[0]
+  if (file) {
+    body.append('file', file)
+    const response = await fetch('http://localhost:18080/api/file/upload', {
+      method: 'post',
+      body
+    })
+    const res = await response.json()
+    console.log(res)
+  } else {
+    alert('请选择文件！')
+  }
+}
 
     var array = [
         // 'Hello World! Hello World! Hello World!',

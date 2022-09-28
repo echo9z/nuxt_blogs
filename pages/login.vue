@@ -83,7 +83,7 @@ button {
   /* 按钮样式 */
   box-sizing: border-box;
   position: relative;
-  padding: 10px 22px;
+  padding: 5px 24px;
   font-weight: 500;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 4px;

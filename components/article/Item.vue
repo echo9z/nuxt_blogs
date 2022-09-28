@@ -16,7 +16,7 @@
       </div>
       <div class="basis-2/3 flex flex-col pl-[10px] pb-[5px] justify-around md:justify-evenly md:p-5">
         <!-- 文章的标题 -->
-        <h2 class="md:text-2xl duration-150 font-bold  text-xl title">
+        <h2 class="md:text-2xl duration-150 font-bold text-[18px] title">
           JavaScript 归并排序
         </h2>
         <div class="py-1">

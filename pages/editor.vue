@@ -5,37 +5,111 @@
 * @date 2022/09/27 16:49:16
 !-->
 <template>
-  <div>
+  <div class="relative">
     <header class="editor-header flex content-center">
       <div class="left-box" style="padding-right: 14px; cursor: pointer;"></div>
-      <input placeholder="输入文章标题..." class="title-input" style="flex: 1 1 auto; height: 100%;" spellcheck="false"
+      <input v-model="article.title" placeholder="输入文章标题..." class="title-input" style="flex: 1 1 auto; height: 100%;" spellcheck="false"
         maxlength="80">
       <div class="right-box flex items-center">
-        <button class="btn mx-[8px]"> 草稿箱 </button>
-        <div class="publish-popup">
-          <button class="btn mx-[8px]">发布</button>
-        </div>
         <NuxtLink class="btn mx-[8px]" to="/">首页</NuxtLink>
       </div>
     </header>
+
     <!-- md文本框 -->
-    <div class="main">
-      <md-editor class="editor" v-model="text"/>
+    <div class="main editor">
+      <md-editor class="editor"
+        @onSave="save"
+        @onHtmlChanged='htmlChanged'
+        @on-upload-img="onUploadImg"
+        v-model="text"/>
+    </div>
+
+    <div class="flex my-[30px] justify-center">
+      <!-- 文章的封面 + 选中的分类 + 文章的标签 -->
+      <div>
+        <ArticleUpload class="mr-[24px]" @uploadChange="uploadChange" />
+      </div>
+      <div>
+        <ArticleTextarea v-model="article.summary" class="mr-[24px]" />
+      </div>
+      <div class="w-[320px] h-[200px]">
+        <p>文章的标签</p>
+        <p>文章分类</p>
+      </div>
+    </div>
+
+    <div class="sticky bottom-0 h-[80px] flex justify-evenly content-center bg-white border-t-[1px] border-solid border-gray-300">
+      <button class="btn mx-[8px] mt-[20px]"> 草稿箱 </button>
+      <div class="publish-popup">
+        <button class="btn mx-[8px] mt-[20px]">发布</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 import MdEditor from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
 definePageMeta({
   // 禁止使用的 layout的
   layout: false
 })
+const text = ref<string>('Hello Editor!')
+const article = reactive({
+  title: '',
+  content: '', // md
+  contentHtml: '',
+  summary: '赵雅思的垃圾斯柯达',
+  coverUrl: '',
+  status: '', // 草稿 还是发布
+  category: '', // 文章分类
+  isRecommend: false, // 是否推荐
+  tag: '' // 1,2,3
+})
+// 文章中的图片上传 在文章内容中
+const onUploadImg = async (files, callback) => {
+  const res = await Promise.all(
+    files.map((file) => {
+      console.log(file)
+      // eslint-disable-next-line promise/param-names
+      return new Promise((rev, rej) => {
+        const body = new FormData()
+        body.append('file', file)
+        console.log(body)
+        useFetch('http://127.0.0.1:18080/api/file/upload', {
+          method: 'post',
+          body
+        }).then((res) => {
+          console.log(res)
+          rev(res)
+        }).catch((error) => rej(error))
+      })
+    })
+  )
 
-const text = ref('Hello Editor!')
+  callback(res.map((item) => {
+    console.log(item)
+    return item.data.value.data.url
+  }))
+}
+// 上传文章封面
+const uploadChange = (files: File, callback: Function): void => {
+  console.log(files)
+  // 这里会上传图片
+  const url = 'http://127.0.0.1:18080/uploads/2022/9/28/1664347084114.jpeg'
+  callback(url)
+}
+
+const htmlChanged = (html:string) => {
+  console.log(html, text.value)
+}
+const save = (value:string) => {
+  console.log(value)
+}
+
 </script>
+
 <style lang="scss" scoped>
 .editor-header {
   padding: 0 27px;
@@ -67,8 +141,7 @@ const text = ref('Hello Editor!')
   box-sizing: border-box;
   background-color: #1d2129;
 }
-
-.main .editor {
-  height: calc(100vh - 5.334rem);
+.editor {
+  height: calc(100vh - 9.25rem);
 }
 </style>
