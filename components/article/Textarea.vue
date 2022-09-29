@@ -23,16 +23,17 @@ const emit = defineEmits(['update:modelValue', 'change'])
 const textArea = ref(null)
 const text = useVModel(props, 'modelValue', emit)
 const textChange = () => {
-  const textAreaDOM = textArea.value
-  // console.log(textAreaDOM.value)
-  // // 当前修改checked的值时，默认会监听到触发父组件事件
-  text.value = textAreaDOM.value // emit('update:modelValue', newVal)
+  const textAreaVal = textArea.value
+  // console.log(textAreaVal.value)
+  // 当前修改checked的值时，默认会监听到触发父组件事件
+  text.value = textAreaVal.value // emit('update:modelValue', newVal)
   // // 为父组件添加change事件处理逻辑
-  emit('change', textAreaDOM) // 将最新的文本内容
+  emit('change', textAreaVal.value) // 将最新的文本内容
 }
 </script>
 <style lang="scss" scoped>
 .text{
+  outline-color: #000;
   resize: none;
   font-size: 14px;
   width: 320px;

@@ -29,7 +29,7 @@
           <div class="whitespace-nowrap px-1">
             <span>2022年03月01日</span>
           </div>
-          <div class="tags">
+          <div class="tags mt-[5px]">
             <NuxtLink to="/" v-for="i in [1,2,3,4,4]" :key="i" class="text-center px-1">
               前端基础
             </NuxtLink>

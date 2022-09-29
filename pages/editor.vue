@@ -18,27 +18,29 @@
     <!-- md文本框 -->
     <div class="main editor">
       <md-editor class="editor"
-        @onSave="save"
         @onHtmlChanged='htmlChanged'
         @on-upload-img="onUploadImg"
-        v-model="text"/>
+        v-model="article.content"/>
     </div>
 
     <div class="flex my-[30px] justify-center">
       <!-- 文章的封面 + 选中的分类 + 文章的标签 -->
-      <div>
-        <ArticleUpload class="mr-[24px]" @uploadChange="uploadChange" />
+      <div class="mr-[24px]">
+        <ArticleUpload @uploadChange="uploadChange" />
       </div>
-      <div>
-        <ArticleTextarea v-model="article.summary" class="mr-[24px]" />
+      <div class="mr-[24px]" >
+        <ArticleTextarea v-model="article.summary" @change="textAreaChange"/>
       </div>
+      <div class="mr-[24px]">
+        <ArticleTags />
+      </div>
+      <!-- 选择分类 -->
       <div class="w-[320px] h-[200px]">
-        <p>文章的标签</p>
-        <p>文章分类</p>
+        <ArticleCate :cateName="cateName" @change="categoryChange" />
       </div>
     </div>
 
-    <div class="sticky bottom-0 h-[80px] flex justify-evenly content-center bg-white border-t-[1px] border-solid border-gray-300">
+    <div class="sticky bottom-0 h-[80px] z-[666] flex justify-evenly content-center bg-white border-t-[1px] border-solid border-gray-300 ">
       <button class="btn mx-[8px] mt-[20px]"> 草稿箱 </button>
       <div class="publish-popup">
         <button class="btn mx-[8px] mt-[20px]">发布</button>
@@ -49,24 +51,29 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
+import { uploadImg } from '../api/article'
 import MdEditor from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
 definePageMeta({
   // 禁止使用的 layout的
   layout: false
 })
-const text = ref<string>('Hello Editor!')
+// 提交是的表单数据
 const article = reactive({
   title: '',
   content: '', // md
   contentHtml: '',
-  summary: '赵雅思的垃圾斯柯达',
+  summary: '',
   coverUrl: '',
   status: '', // 草稿 还是发布
   category: '', // 文章分类
   isRecommend: false, // 是否推荐
   tag: '' // 1,2,3
 })
+// md触发事件
+const htmlChanged = (html) => {
+  article.contentHtml = html
+}
 // 文章中的图片上传 在文章内容中
 const onUploadImg = async (files, callback) => {
   const res = await Promise.all(
@@ -74,13 +81,7 @@ const onUploadImg = async (files, callback) => {
       console.log(file)
       // eslint-disable-next-line promise/param-names
       return new Promise((rev, rej) => {
-        const body = new FormData()
-        body.append('file', file)
-        console.log(body)
-        useFetch('http://127.0.0.1:18080/api/file/upload', {
-          method: 'post',
-          body
-        }).then((res) => {
+        uploadImg(file).then((res) => {
           console.log(res)
           rev(res)
         }).catch((error) => rej(error))
@@ -89,23 +90,33 @@ const onUploadImg = async (files, callback) => {
   )
 
   callback(res.map((item) => {
-    console.log(item)
-    return item.data.value.data.url
+    console.log(item.value.data.url)
+    return item.value.data.url
   }))
 }
 // 上传文章封面
-const uploadChange = (files: File, callback: Function): void => {
+const uploadChange = async (files: File[], callback: Function) => {
   console.log(files)
   // 这里会上传图片
-  const url = 'http://127.0.0.1:18080/uploads/2022/9/28/1664347084114.jpeg'
-  callback(url)
+  const res: any = await new Promise((rev, rej) => {
+    uploadImg(files[0]).then((res) => {
+      rev(res)
+    }).catch((error) => rej(error))
+  })
+  article.coverUrl = res.value.data.url
+  callback(res.value.data.url)
 }
 
-const htmlChanged = (html:string) => {
-  console.log(html, text.value)
+const cateName = ref('')
+// 选择分类change事件
+const categoryChange = (category) => {
+  cateName.value = category.cateName
+  article.category = category.cateId
 }
-const save = (value:string) => {
-  console.log(value)
+
+// 摘要处理
+const textAreaChange = (textContent: string) => {
+  article.summary = textContent
 }
 
 </script>

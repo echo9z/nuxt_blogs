@@ -56,6 +56,8 @@ const handleUploadImage = (e) => {
     border: 1px dashed #bfbfbf;
     border-radius: 4px;
     .add-tag {
+      max-width: 320px;
+      max-height: 200px;
       color: #999;
       font-size: 24px;
       position: absolute;

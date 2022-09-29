@@ -36,7 +36,7 @@
         <h4 class="px-2.5 py-1.5">标签</h4>
       </div>
       <div class="tags flex flex-wrap justify-around">
-        <NuxtLink class="block h-7 mt-2 rounded-full bg-gray-100 leading-7 px-[8px] text-sm"
+        <NuxtLink class="block h-7 mt-2 bg-black rounded-full leading-7 px-[8px] text-[12px] text-white hover:text-yellow-200 hover:shadow-lg"
           v-for="i in [1,2,3,5,6,5,5]" :key="i">
           JavaScript
         </NuxtLink>

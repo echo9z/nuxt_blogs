@@ -1,6 +1,6 @@
 // 导入_AsyncData返回的数据类型接口
 import { _AsyncData } from 'nuxt/dist/app/composables/asyncData'
-let baseUrl = ''
+let baseUrl = 'http://127.0.0.1:18080'
 // 指定后端返回的基本数据类型
 // export interface ResponseConfig {
 //     code: number,
@@ -10,9 +10,10 @@ let baseUrl = ''
 // }
 
 const fetch = (url:string, option?:any): Promise<any> => {
-  const reqUrl = `${baseUrl}url`
+  const reqUrl = `${baseUrl}${url}`
   return new Promise((resolve, reject) => {
-    useFetch(reqUrl, ...option).then(({ data, error }) => {
+    console.log(reqUrl, option);
+    useFetch(reqUrl, option).then(({ data, error }) => {
       if (error.value) {
         reject(error.value)
         return
@@ -36,8 +37,8 @@ export default new class Http {
     return fetch(url, { method: 'get', params })
   }
 
-  post(url: string, params?: any): Promise<any>  {
-    return fetch(url, { method: 'post', params })
+  post(url: string, body?: any): Promise<any>  {
+    return fetch(url, { method: 'post', body })
   }
 
   put(url: string, body?: any): Promise<any>  {
