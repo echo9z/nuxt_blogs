@@ -10,7 +10,7 @@
     <!-- 轮播图片 -->
     <div class="w-ful">
       <div class="relative rounded-[10px] overflow-hidden">
-        <img src="~~/assets/images/blogs.jpg" alt="">
+        <img src="/assets/images/blogs.jpg" alt="">
         <CoolFont class="cool-font xl:w-[800px]" />
       </div>
     </div>

@@ -6,8 +6,11 @@
 !-->
 <template>
   <div class="tag-input-warp w-[320px] h-[200px]  p-[10px]">
-    <div class="tags flex flex-wrap justify-start" v-if="tags.length" >
-      <TagItem class="m-[5px]" v-for="(item,i) in tags" :key="i" :name="item" />
+    <div class="tags flex flex-wrap justify-start" v-if="tagsArr.length" >
+      <TagItem class="m-[5px]" v-for="(item,i) in tagsArr"
+        :key="item.id"
+        :name="item.name"
+        @click="tagClick(item)" :class="{ active: icludeTag(item)}" />
     </div>
     <div class="m-[5px]">
       <input ref="InputRef" v-if="inputVisible"
@@ -19,21 +22,17 @@
 </template>
 <script lang="ts" setup>
 import TagItem from './TagItem.vue'
+import { createTags } from '~~/api/article'
 const props = defineProps ({
   tagsArr: {
     type: Array,
-    default: () => [{ id: 1, name: 'java' }]
+    default: () => []
   }
 })
-const tags = ref([])
-const tagValue = ref('')
-const InputRef = ref()
+const emit = defineEmits(['addTag', 'checkedTags'])
 
-onMounted(() => {
-  props.tagsArr.forEach(tag => {
-    tags.value.push(tag.name)
-  })
-})
+const tagValue = ref('')
+const InputRef = ref() // input 文本dom对象
 
 const inputVisible = ref < Boolean > (false) // 控制btn 与 input进行显示和隐藏
 const showInput = () => {
@@ -44,15 +43,33 @@ const showInput = () => {
 }
 
 // 文本框回车 和 失去焦点
-const generateTag = () => {
+const generateTag = async () => {
   // 显示 添加btn按钮
   inputVisible.value = false
   // 判定value是否合法 不能唯空
   if (tagValue.value.trim().length <= 0) {
     return
   }
-  tags.value.push(tagValue.value)
+  // 发起添加tag标签数据
+  const res = await createTags({ name: tagValue.value })
+  emit('addTag', res.data)
   tagValue.value = ''
+}
+
+const checkedTags = ref([])
+// 点击tag 记录被点击的tag
+const tagClick = (item) => {
+  let index = checkedTags.value.indexOf(item)
+  if (checkedTags.value.indexOf(item) > -1) {
+    checkedTags.value.splice(index, 1)
+  } else {
+    checkedTags.value.push(item)
+  }
+  // 将选中所有的标签，像父组件抛出
+  emit('checkedTags', checkedTags.value)
+}
+const icludeTag = (item) => {
+  return checkedTags.value.includes(item)
 }
 
 </script>
@@ -60,6 +77,12 @@ const generateTag = () => {
 .tag-input-warp{
   border: 1px solid #bfbfbf;
   border-radius:5px;
+}
+.tag{
+  &.active{
+    background-color: #faee38;
+    color: #000;
+  }
 }
 .tag-input{
   padding: 5px 11px;

@@ -7,7 +7,7 @@
 <template>
   <div>
     <AppHeader />
-    <main>
+    <main class="flex xl:max-w-screen-xl m-auto w-full relative mb-[35px]">
       <slot />
     </main>
     <AppFooter />
@@ -15,6 +15,7 @@
 </template>
 
 <script lang="ts" setup>
+// 获取文章数据
 
 </script>
 <style lang="scss" scoped>

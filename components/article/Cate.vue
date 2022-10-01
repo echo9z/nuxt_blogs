@@ -48,7 +48,7 @@ const open = async () => {
   const res = await getCategory().finally(() => {
     loading.value = false
   })
-  allCategory.value = res.value.data.list
+  allCategory.value = res.data.list
   // 在每次点击时，清空之前的选中数据，计算属性就会将window.cityData数据赋值给
   for (const key in selectResult) {
     selectResult[key] = ''

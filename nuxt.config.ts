@@ -1,5 +1,17 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  experimental: {
+    externalVue: true,
+  },
+  runtimeConfig: {
+    // Private keys are only available on the server
+    apiSecret: '123',
+
+    // Public keys that are exposed to the client
+    public: {
+      apiBase: 'http://127.0.0.1:18080'
+    }
+  },
   server: {
     proxy: {
       '/api': {
@@ -25,7 +37,6 @@ export default defineNuxtConfig({
         autoImports: [
           // 自动导入 imports `defineStore` 和 imports `defineStore` as `definePiniaStore`
           'defineStore', // import { defineStore } from 'pinia'
-          ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
         ],
       },
     ],

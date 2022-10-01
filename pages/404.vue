@@ -19,7 +19,7 @@
 // })
 definePageMeta({
   // 禁止使用的 layout的
-  layout: false
+  layout: 'custom'
 })
 const handleError = () => clearError({ redirect: '/' })
 </script>

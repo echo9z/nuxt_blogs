@@ -32,7 +32,7 @@
         <ArticleTextarea v-model="article.summary" @change="textAreaChange"/>
       </div>
       <div class="mr-[24px]">
-        <ArticleTags />
+        <ArticleTags :tagsArr="tagsArr" @addTag="addTag" @checkedTags="checkedTags" />
       </div>
       <!-- 选择分类 -->
       <div class="w-[320px] h-[200px]">
@@ -43,7 +43,7 @@
     <div class="sticky bottom-0 h-[80px] z-[666] flex justify-evenly content-center bg-white border-t-[1px] border-solid border-gray-300 ">
       <button class="btn mx-[8px] mt-[20px]"> 草稿箱 </button>
       <div class="publish-popup">
-        <button class="btn mx-[8px] mt-[20px]">发布</button>
+        <button class="btn mx-[8px] mt-[20px]" @click="createAricle">发布</button>
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
-import { uploadImg } from '../api/article'
+import { uploadImg, getTags, createArticle } from '../api/article'
 import MdEditor from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
 definePageMeta({
@@ -90,8 +90,8 @@ const onUploadImg = async (files, callback) => {
   )
 
   callback(res.map((item) => {
-    console.log(item.value.data.url)
-    return item.value.data.url
+    console.log(item.data.url)
+    return item.data.url
   }))
 }
 // 上传文章封面
@@ -103,8 +103,8 @@ const uploadChange = async (files: File[], callback: Function) => {
       rev(res)
     }).catch((error) => rej(error))
   })
-  article.coverUrl = res.value.data.url
-  callback(res.value.data.url)
+  article.coverUrl = res.data.url
+  callback(res.data.url)
 }
 
 const cateName = ref('')
@@ -119,6 +119,30 @@ const textAreaChange = (textContent: string) => {
   article.summary = textContent
 }
 
+const tagsArr = ref([]) // 存放tag标签数组
+const tags = await getTags()
+// console.log(tags);
+tagsArr.value = tags.data
+// 子组件的触发事件
+const addTag = (tag) => {
+  tagsArr.value.push(tag)
+}
+// 将选中的tag数据赋值给reactive
+const checkedTags = (checkedTags) => {
+  console.log(checkedTags)
+  // 将选中的tag数组中的id 格式化为 1,2,3,4
+  let strTags = checkedTags.map(item => item.id).join(',');
+  console.log(strTags)
+  article.tag = strTags
+}
+
+// 最后的发表文章
+const createAricle = async () => {
+  article.status = 'publish'
+  const res = await createArticle(article)
+  console.log(res);
+  navigateTo(`/article/${res.data.articleId}`)
+}
 </script>
 
 <style lang="scss" scoped>

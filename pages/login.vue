@@ -6,41 +6,85 @@
 !-->
 <template>
   <div class="">
-    <div style="" class="box box2 ">
-      <div class="form-item">
-        <div class="input">
-          <i class="iconfont icon-emo-happy box-i"></i>
-          <input class="box-int" name="account" type="text" placeholder="请输入用户名" />
+    <div class="box box2 ">
+        <div class="form-item">
+          <div class="input">
+            <i class="iconfont icon-emo-happy box-i"></i>
+            <input class="box-int"
+              name="username"
+              v-model="username"
+              @blur="usernameChange"
+              type="text" placeholder="请输入用户名" />
+          </div>
+          <div class="error" v-if="usernameError">
+            <i class="iconfont icon-emo-unhappy" />
+            {{usernameError}}
+          </div>
+          <!-- <div class="error"><i class="iconfont icon-warning" />请输入手机号</div> -->
         </div>
-        <div v-show="false" class="error"><i class="iconfont icon-emo-angry" />错误</div>
-        <!-- <div class="error"><i class="iconfont icon-warning" />请输入手机号</div> -->
-      </div>
-      <div class="form-item">
-        <div class="input">
-          <i class="iconfont icon-emo-sunglasses box-i"></i>
-          <input class="box-int" name="account" type="password" placeholder="请输入密码" />
+        <div class="form-item">
+          <div class="input">
+            <i class="iconfont icon-emo-sunglasses box-i"></i>
+            <input class="box-int"
+              name="password"
+              v-model="password"
+              @blur="passwordChange"
+              type="password" placeholder="请输入密码" />
+          </div>
+          <div class="error" v-if="passwordError">
+            <i class="iconfont icon-emo-unhappy" />
+            {{passwordError}}
+          </div>
+          <!-- <div class="error"><i class="iconfont icon-warning" />请输入手机号</div> -->
         </div>
-        <div v-show="false" class="error"><i class="iconfont icon-emo-angry" /></div>
-        <!-- <div class="error"><i class="iconfont icon-warning" />请输入手机号</div> -->
-      </div>
-      <!-- 登录按钮 -->
-      <div class="mt-[20px]">
-        <button class="btn-hover px-6 transition-all">
-          <!-- 正方形 -->
-          <span class="bg-s bg-p transition-all ease-out duration-500"></span>
-          <span class="tx-s transition-all ease-in-out duration-300 transition-colors">登录</span>
-        </button>
-      </div>
+        <!-- 登录按钮 -->
+        <div class="text-center">
+          <button class="btn-hover px-6 transition-all" @click="submit">
+            <!-- 正方形 -->
+            <span class="bg-s bg-p transition-all ease-out duration-500"></span>
+            <span class="tx-s transition-all ease-in-out duration-300 transition-colors">登录</span>
+          </button>
+        </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { useForm, useField } from 'vee-validate'
+import veeValidateSchema from '~~/utils/vee-validate-schema'
+import { login } from '~~/api/login'
+import message from '~~/components/message/show'
 definePageMeta({
   // 禁止使用的 layout的
   layout: false
 })
+const userStore = useUserStore()
+const form = useForm({ validationSchema: veeValidateSchema })
+const { value: username, errorMessage: usernameError, handleChange: usernameChange } = useField < string > ('username')
+const { value: password, errorMessage: passwordError, handleChange: passwordChange } = useField < string > ('password')
+// 点击提交登录
+const submit = async () => {
+  // if (passwordError && usernameError) return alert('请添加完善信息')
+  const { valid } = await form.validate()
+  if (valid) {
+    const res = await login({
+      username: username.value,
+      password: password.value
+    }).catch(error => {
+      message({ type: 'error', text: error.data.msg || '登录失败' })
+    })
+    console.log(res.data.result)
+    if (res.status === 200) {
+      // 登录成功将用户信息存储到store中
+      userStore.setUser(res.data.result)
+      navigateTo('/') // 登录成功跳回到首页
+    }
+  } else {
+    return message({ type: 'error', text: '请填写登录信息' })
+  }
+}
 </script>
+
 <style lang="scss" scoped>
 .box {
   background-color: #323232;
@@ -58,17 +102,26 @@ definePageMeta({
 }
 
 .box-i {
-  @apply mr-[20px] text-[20px] text-white
+  @apply mr-[15px] text-[20px] text-white
 }
 .box-int{
   @apply h-[45px] w-[280px] rounded pl-[15px] outline-none
 }
 
 .form-item {
-  height: 60px;
-  display: flex;
+  height: 80px;
+  // display: flex;
   justify-content: center;
   align-items: center;
+
+  .error{
+    margin-top: 5px;
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    color: red;
+    margin-left: 45px;
+  }
 }
 
 /** 登录按钮 */
