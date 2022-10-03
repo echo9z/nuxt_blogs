@@ -1,7 +1,10 @@
 import http from '../utils/request'
-export interface ITag {
-  id: number
-  name: string
+export interface IFindLimit {
+    page: number;
+    pageSize: number;
+    keyword: string;
+    sortField: string;
+    sortMethod: string;
 }
 // 上传文件
 export const uploadImg = (file) => {
@@ -32,4 +35,9 @@ export const createArticle = (body) => {
 // 根据Id获取文章数据
 export const getArticleById = (id) => {
   return http.get(`/api/articles/${id}`)
+}
+
+// 根据Id获取文章数据
+export const findArticleList = (params: IFindLimit) => {
+  return http.get('/api/articles/list', params)
 }

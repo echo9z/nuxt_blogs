@@ -1,3 +1,5 @@
+import { defineStore } from 'pinia'
+
 export const useUserStore = defineStore('user', {
   // 2.使用容器中的state
   state: () => {
@@ -22,8 +24,8 @@ export const useUserStore = defineStore('user', {
     setUser (payload) {
       this.profile = payload
     },
-    setRedirectUrl (state, redirectUrl) {
-      state.redirectUrl = redirectUrl
+    setRedirectUrl (redirectUrl) {
+      this.redirectUrl = redirectUrl
     }
   },
   persist: true

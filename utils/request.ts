@@ -1,21 +1,22 @@
 import axios, { AxiosRequestConfig } from "axios";
-
+import { useUserStore } from "~~/composables/useUserStore";
 const instance = axios.create({
   // axios 的一些配置
   baseURL: 'http://127.0.0.1:18080'
   // timeout: 5000
 })
+// const userStore = useUserStore()
 
 instance.interceptors.request.use((config: AxiosRequestConfig) => {
   // 拦截业务逻辑
   // 进行请求配置的修改
   // 在请求时，在请求头中添加token
-  // const { profile } = store.state.user
+  const { profile } = useUserStore()
   // 判断是否有token
-  // if (profile.token) {
-    // config.headers.Authorization = `Bearer ${}`
-    config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZGJjOGM2My00NDVhLTQ1ZjQtYTYxOC01ZTE0Njk3NDQ5NmQiLCJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjY0NTMzMDIyLCJleHAiOjE2NjUxMzc4MjJ9.a89swr5W-SdO3GEYU-Kb4IVndBUEcbbL8VX4s25ufrA`
-  // }
+  if (profile.token) {
+    config.headers.Authorization = `Bearer ${profile.token}`
+    // config.headers.Authorization = `Bearer `
+  }
   return config
 }, err => {
   // 错误的处理

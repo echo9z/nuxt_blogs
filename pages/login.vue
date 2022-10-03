@@ -73,7 +73,6 @@ const submit = async () => {
     }).catch(error => {
       message({ type: 'error', text: error.data.msg || '登录失败' })
     })
-    console.log(res.data.result)
     if (res.status === 200) {
       // 登录成功将用户信息存储到store中
       userStore.setUser(res.data.result)

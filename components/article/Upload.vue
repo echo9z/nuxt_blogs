@@ -7,7 +7,8 @@
 <template>
   <div>
     <div>
-      <input style="display:none" ref="postFile" @change="handleUploadImage" type="file" name="article" accept="image/png,image/jpeg" />
+      <input style="display:none" ref="postFile" @change="handleUploadImage" type="file" name="article"
+        accept="image/png,image/jpeg,image/webp" />
       <div class="imgView" @click="clickHandle">
         <div class="imgView_hover">
           <img class="add-tag" :src="src" alt="">

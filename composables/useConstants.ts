@@ -1,7 +1,6 @@
-export const topCategory = [
-  '首页',
-  '文章',
+export const useConstants = [
   '归档',
+  '动态',
   '留言',
   '友链',
   '关于'

@@ -14,7 +14,14 @@
     <!-- 弹出层 -->
     <div class="layer" :class="{open:showLayer}">
       <ul>
-        <li v-for="item in navLists" :key="item">{{item}}</li>
+        <li>
+          <NuxtLink class="home" to='/' >首页</NuxtLink>
+        </li>
+        <li v-for="(item, index) in navList" :key="item.id">
+        <NuxtLink :to="item.path">
+          {{item.pageName}}
+        </NuxtLink> 
+      </li>
       </ul>
     </div>
   </div>
@@ -22,16 +29,15 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-defineProps({
-  navLists: {
-    type: Array,
-    default: () => []
-  }
-})
 const showLayer = ref(false)
 const clickHandler = () => {
   showLayer.value = !showLayer.value
 }
+const navStore = useNavStore()
+
+const navList = computed(() => {
+  return navStore.list
+})
 </script>
 <style lang="scss" scoped>
 .smilePopup {

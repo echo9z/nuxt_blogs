@@ -6,7 +6,7 @@
 !-->
 <template>
   <div class="w-full flex" v-if="article">
-    <div class="w-[950px] md:mt-4 bg-white shadow-lg p-5 rounded-md">
+    <div class="art w-[950px] md:mt-4 bg-white shadow-lg rounded-md">
       <!-- 标题 -->
       <div>
         <h1 class="md:text-4xl text-xl title font-bold md:pt-5">{{article.title}}</h1>
@@ -68,6 +68,14 @@ const article = ref(null)
 const res = await getArticleById(route.params.id)
 article.value = res.data
 
+useHead({
+  titleTemplate: (productCategory) => { // 动态标题
+    return productCategory
+      ? `${res.data.title} - ${productCategory}`
+      : productCategory
+  },
+})
+
 const catalogList = ref([])
 const onGetCatalog = (list) => {
   catalogList.value = list
@@ -80,6 +88,9 @@ onMounted(() => {
 
 </script>
 <style lang="scss" scoped>
+.art {
+  padding: 0 45px 35px;
+}
 .catalog {
   ul li a {
     font-size: 14px;

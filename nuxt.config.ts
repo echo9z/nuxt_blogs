@@ -4,20 +4,23 @@ export default defineNuxtConfig({
     externalVue: true,
   },
   runtimeConfig: {
-    // Private keys are only available on the server
     apiSecret: '123',
-
-    // Public keys that are exposed to the client
     public: {
       apiBase: 'http://127.0.0.1:18080'
     }
   },
   server: {
+    // port: 18081,
+    // strictPort: true,
     proxy: {
+      // '/api': {
+      //   target: 'http://127.0.0.1:18080',
+      //   changeOrigin: true,
+      //   // rewrite: (path) => path.replace(/^\/api/, '')
+      // },
       '/api': {
-        target: 'http://127.0.0.1:18080',
+        target: 'https://v.api.aa1.cn',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
       },
     }
   },

@@ -1,6 +1,7 @@
 <template>
   <div>
     <NuxtLayout>
+      <NuxtLoadingIndicator :color="color" />
       <!-- 这里是公共布局 这里的NuxtLayout内容会插入到layouts的default组件中 -->
       <!-- page下的所有出口 这个相当于路由出口 -->
       <NuxtPage />
@@ -10,7 +11,7 @@
 <script lang="ts" setup>
 // seo 中title keywords description
 useHead({
-  title: 'echo9z博客-web前端',
+  title: 'echo9z博客 - web前端',
   // titleTemplate: (productCategory) => { // 动态标题
   //   return productCategory
   //     ? `${productCategory} - Site Title`
@@ -19,7 +20,6 @@ useHead({
   htmlAttrs: {
     lang: 'zh-CN'
   },
-  // or, instead:
   // titleTemplate: (title) => `My App - ${title}`,
   charset: 'utf-8',
   meta: [
@@ -46,5 +46,7 @@ useHead({
     // }
   ]
 })
+
+const color = 'repeating-linear-gradient(to right, #1d9ae5 0%, #8a9afb 50%, #e990fd 100%)'
 
 </script>

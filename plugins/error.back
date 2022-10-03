@@ -6,6 +6,8 @@
 //     console.log(context);
 //   }
 // })
+  // nuxtApp.vueApp.use(lbAudio)
+  // nuxtApp.vueApp.component("lbAudio", lbAudio)
 
 // export default defineNuxtPlugin((nuxtApp) => {
 //   nuxtApp.hook("app:error", async (error) => {

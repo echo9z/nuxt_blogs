@@ -27,8 +27,9 @@
   },
   "dependencies": {
     "dayjs": "^1.11.5",
-    "md-editor-v3": "^2.2.1",
+    "md-editor-v3": "^2.3.0",
     "pinia-plugin-persistedstate": "^2.2.0",
-    "vee-validate": "^4.6.10"
+    "vee-validate": "^4.6.10",
+    "vue3-lazyload": "^0.3.6"
   }
 }

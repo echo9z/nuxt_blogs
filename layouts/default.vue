@@ -8,9 +8,10 @@
   <div>
     <header>
       <AppHeader />
+      <AppHeaderSticky />
     </header>
-    <main class="flex xl:max-w-screen-xl m-auto w-full relative">
-      <div class="w-[950px] md:mt-4 md:ml-2.5">
+    <main class="flex xl:max-w-screen-xl m-auto w-full relative ">
+      <div class="w-[950px] md:mt-4 md:ml-2.5 min-h-[750px]">
         <!-- 头部导航点击的内容 全在slot中输出 -->
         <slot />
       </div>

@@ -16,9 +16,7 @@
     </div>
     <!-- 文章 -->
     <div>
-      <LazyArticleItem v-for="i in 5" :key="i" />
-      <!-- 分页组件 -->
-      <AppPagination />
+      <ArticleView />
     </div>
   </div>
 </template>
