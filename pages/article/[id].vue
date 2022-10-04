@@ -73,7 +73,7 @@ useHead({
     return productCategory
       ? `${res.data.title} - ${productCategory}`
       : productCategory
-  },
+  }
 })
 
 const catalogList = ref([])
@@ -92,8 +92,13 @@ onMounted(() => {
   padding: 0 45px 35px;
 }
 .catalog {
-  ul li a {
-    font-size: 14px;
+  ul li {
+    text-overflow: ellipsis;
+    white-space: nowrap;/*1.禁止自动换行在一行内显示*/
+    overflow: hidden; /* 2.超出部分进行隐藏 */
+    a {
+      font-size: 14px;
+    }
   }
   li a::before{
     content: "";

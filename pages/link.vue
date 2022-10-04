@@ -7,6 +7,7 @@
 <template>
   <div>
     友链
+    <AppWork />
   </div>
 </template>
 

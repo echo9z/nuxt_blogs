@@ -45,10 +45,6 @@ const props = defineProps({
     default: () => {}
   }
 })
-
-const articleDetail = () => {
-  
-}
 </script>
 <style lang="scss" scoped>
 

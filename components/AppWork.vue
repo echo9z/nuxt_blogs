@@ -1,13 +1,12 @@
 <!--
-* @description 网站建设动态
-* @fileName dynamic.vue
+* @description 处于待开发状态
+* @fileName AppWork.vue
 * @author echo9z
-* @date 2022/10/03 14:20:11
+* @date 2022/10/04 11:07:02
 !-->
 <template>
   <div>
-    网站建设动态
-    <AppWork />
+    <h3>处于待开发状态</h3>
   </div>
 </template>
 

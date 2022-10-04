@@ -2,9 +2,11 @@ import http from '../utils/request'
 export interface IFindLimit {
     page: number;
     pageSize: number;
-    keyword: string;
+    keyword?: string;
     sortField: string;
     sortMethod: string;
+    category?: string;
+    tag?: string;
 }
 // 上传文件
 export const uploadImg = (file) => {

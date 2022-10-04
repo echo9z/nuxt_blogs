@@ -5,7 +5,9 @@
 * @date 2022/10/03 15:45:39
 !-->
 <template>
-  <div></div>
+  <div>
+    <AppWork />
+  </div>
 </template>
 
 <script lang="ts" setup>

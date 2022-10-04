@@ -7,6 +7,7 @@
 <template>
   <div>
     归档
+    <AppWork />
   </div>
 </template>
 

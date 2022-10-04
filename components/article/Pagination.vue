@@ -6,20 +6,18 @@
 !-->
 <template>
   <div class="pagination flex justify-start px-[10px] py-[30px]">
-   <!-- 理想化的分页组件 -->
-   <a href="javascript:;" @click="goIndex(1)">首页</a> <!-- 相当于首页 -->
+    <a href="javascript:;" @click="goIndex(1)">首页</a>
     <a href="javascript:;" @click="changePage(currentPage-1)" :class="{ disabled: currentPage <= 1 }">上一页</a>
-    <!-- 是否禁用，需要指导当前页码值是否等于1 -->
-    <span v-if="pager.start > 1">...</span><!-- 是否显示：需要知道选中的按钮页面是否 >= 5 -->
-    <!-- 需要知道中间显示几个按钮 比如 下面有5个按钮，通过选中来判断下面5个按钮的起始按钮 和 结束按钮 得到数组[3,4,5,6,7] 再进行渲染 -->
-    <a href="javascript:;" v-for="page in pager.btnArr" :key="page"
+    <span v-if="pager.start > 1">...</span>
+    <a href="javascript:;"
+      v-for="page in pager.btnArr" :key="page"
       :class="{ active: currentPage === page }"
       @click="changePage(page)"
     >
       {{ page }}
     </a>
 
-    <span v-if="pager.end < pager.pageCount">...</span><!-- 是否显示：需要知道选中的按钮页面 是否 总页码 - 选中页页码 <= 5 -->
+    <span v-if="pager.end < pager.pageCount">...</span>
     <a href="javascript:;" @click="changePage(currentPage+1)" :class="{ disabled: currentPage >= pager.pageCount }">下一页</a>
     <a href="javascript:;" @click="goIndex(pager.pageCount)">尾页</a>
   </div>

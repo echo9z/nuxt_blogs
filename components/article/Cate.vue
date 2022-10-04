@@ -26,7 +26,6 @@
 </template>
 
 <script setup lang='ts'>
-import { computed, defineComponent, reactive, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import { getCategory } from '~~/api/article'
 const emit = defineEmits(['change'])

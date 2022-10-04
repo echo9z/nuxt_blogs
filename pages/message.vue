@@ -7,6 +7,7 @@
 <template>
   <div>
     留言
+    <AppWork />
   </div>
 </template>
 
