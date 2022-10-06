@@ -6,7 +6,7 @@
 !-->
 <template>
   <div class="mt-2 bg-white rounded-md shadow-lg md:py-2 lg:py-5">
-    <ul class="flex w-full justify-around">
+    <ul class="flex w-full justify-evenly">
       <li class="w-10 text-center" v-for="(item, index) in count.data" :key="index">
         <h3 class="lg:text-lg font-bold">{{item.name}}</h3>
         <p>

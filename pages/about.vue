@@ -9,7 +9,7 @@
     关于
   </div>
 </template>
-
+2
 <script lang="ts" setup>
 
 </script>

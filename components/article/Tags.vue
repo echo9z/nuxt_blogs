@@ -14,7 +14,7 @@
     </div>
     <div class="m-[5px]">
       <input ref="InputRef" v-if="inputVisible"
-        class="tag-input" @keyup.enter="generateTag" @blur="generateTag"
+        class="tag-input" @blur="generateTag"
         v-model="tagValue" type="text">
       <button class="tag-btn" @click="showInput" v-else >+ New Tag</button>
     </div>

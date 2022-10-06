@@ -25,7 +25,7 @@
         </div>
         <div class="flex text-gray-500 text-xs flex-col ">
           <div class="whitespace-nowrap px-1">
-            <span>{{articleItem.publishTime}}</span>
+            <span>{{publishTime}}</span>
           </div>
           <div class="tags mt-[5px]">
             <NuxtLink to="/" v-for="tag in articleItem.tags" :key="tag.id" class="text-center px-1">
@@ -39,11 +39,17 @@
 </template>
 
 <script lang="ts" setup>
+import { useFormatDate } from '~~/utils/day'
+
 const props = defineProps({
   articleItem: {
     type: Object,
     default: () => {}
   }
+})
+const publishTime = ref('')
+onMounted(() => {
+  publishTime.value = useFormatDate(props.articleItem.publishTime, 'YYYY年MM月DD')
 })
 </script>
 <style lang="scss" scoped>

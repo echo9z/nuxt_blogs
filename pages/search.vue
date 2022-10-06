@@ -14,8 +14,8 @@
         </h1>
         <div class="cate center">
           <ul class="flex flex-wrap">
-            <li class="li-style" @click="cateHandler('')" >全部</li>
-            <li class="li-style" v-for="cate in catesList" :key="cate.id" @click="cateHandler(cate.id)">
+            <li class="li-style" :class="{active: search.category === null}"  @click="cateHandler(null)" >全部</li>
+            <li class="li-style" :class="{active: search.category === cate.id}" v-for="cate in catesList" :key="cate.id" @click="cateHandler(cate.id)">
               <NuxtLink>
                 {{cate.name}}
               </NuxtLink>
@@ -30,7 +30,7 @@
         </h1>
         <div class="tag center">
           <ul class="flex flex-wrap">
-            <li class="li-style" @click="tagHandler('')" >全部</li>
+            <li class="li-style" :class="{active: search.category === null}" @click="tagHandler(null)" >全部</li>
             <li class="li-style" :class="{active: search.tag === tag.id}" v-for="tag in tagsArr" :key="tag.id" @click="tagHandler(tag.id)">
               <NuxtLink>
                 {{tag.name}}
@@ -41,8 +41,6 @@
       </div>
     </div>
     <!-- 筛选 -->
-    <!-- 搜索结果文章 -->
-    搜索页结果
     <!-- 搜索结果文章 -->
     <div>
       <ArticleView :search="search"  />
@@ -84,7 +82,7 @@ const tagHandler = (id) => {
 </script>
 <style lang="scss" scoped>
 .li-style {
-  @apply cursor-pointer md:hover:text-white md:hover:bg-black px-2 py-1 mr-3 rounded
+  @apply cursor-pointer md:hover:text-white md:hover:bg-black px-2 py-1 mr-3 rounded text-[14px]
 }
 .center {
   @apply flex content-center

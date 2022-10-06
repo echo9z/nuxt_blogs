@@ -109,7 +109,7 @@ watch(() => props, () => {
   total.value = props.totalPage // 一共有多少条数据
   pageSize.value = props.pageSizes // 一共有多少条数据
   currentPage.value = props.currentPages // 一共有多少条数据
-}, { immediate: true })
+}, { immediate: true, deep: true })
 
 </script>
 

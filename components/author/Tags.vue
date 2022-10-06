@@ -9,7 +9,7 @@
     <div class="title">
       <h4 class="px-2.5 py-1.5">标签</h4>
     </div>
-    <div class="tags flex flex-wrap justify-around mb-[15px]">
+    <div class="tags flex flex-wrap justify-evenly mb-[15px]">
       <NuxtLink class="block h-7 mt-2 bg-black rounded-lg leading-7 px-[8px] text-[12px] text-white hover:text-yellow-200 hover:shadow-lg"
         v-for="tag in tagsArr" :key="tag.id">
         {{tag.name}}

@@ -6,15 +6,24 @@
 !-->
 <template>
   <div>
-    <div>
-      <ArticleItem @click="articleDetail(article.id)" v-for="article in articleList" :key="article.id" :articleItem="article" />
+    <div v-if="total > 0">
+      <div>
+        <ArticleItem @click="articleDetail(article.id)"
+          v-for="article in articleList"
+          :key="article.id"
+          :articleItem="article" />
+      </div>
+      <!-- 分页组件 -->
+      <ArticlePagination
+        :totalPage="total"
+        :pageSizes="reqParams.pageSize"
+        :currentPages="reqParams.page"
+        @currentChange="changePager" />
     </div>
-    <!-- 分页组件 -->
-    <ArticlePagination
-      :totalPage="total"
-      :pageSizes="reqParams.pageSize"
-      :currentPages="reqParams.page"
-      @currentChange="changePager" />
+    <div class="flex flex-col justify-center items-center mt-[30px]" v-else>
+      <i class="icon-search text-gray-300 mb-[80px]">未搜索的结果</i>
+      <img src="/assets/images/undefined.jpg" class="w-[460px]" alt="">
+    </div>
   </div>
 </template>
 
@@ -43,7 +52,7 @@ watch(() => props, () => {
 }, { immediate: true, deep: true })
 
 const articleList = ref([])
-const total = ref(1)
+const total = ref(0)
 // 评价组件初始发送 评论内容请求，筛选条件发送改变也发送请求
 watch(reqParams, async () => {
   const res = await findArticleList(reqParams)

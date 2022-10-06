@@ -8,7 +8,7 @@
   <!-- 作者 和 头像部分  h-[200px] lg:h-[250px] -->
   <div class="flex flex-col md:p-6 justify-center bg-white rounded shadow-lg">
     <div class="flex justify-center">
-      <img class="w-24 h-24 rounded-full" src="assets/images/logo.png" alt="echo9z">
+      <img class="w-24 h-24 rounded-full" src="/assets/images/logo.png" alt="echo9z">
     </div>
     <h2 class="text-center text-2xl">echo9z</h2>
     <div class="text-center mt-2">

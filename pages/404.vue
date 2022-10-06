@@ -4,7 +4,7 @@
     <div class="mt-[20px]">
       <NuxtLink class="bg-black text-white rounded-lg p-4 h-[45px] leading-[45px]" to="/" >回到首页</NuxtLink>
     </div>
-    <img src="/assets/images/duck.jpeg" >
+    <img src="/assets/images/404.jpg" >
   </div>
 </template>
 
