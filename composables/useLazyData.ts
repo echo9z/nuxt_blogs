@@ -1,7 +1,6 @@
 // 数据懒加载
 import { useIntersectionObserver, useIntervalFn } from '@vueuse/core'
 import { ref } from 'vue'
-import dayjs from 'dayjs'
 /**
  * 组件数据的懒加载，当组件出现在浏览器的可视区域，执行相关逻辑
  * 目的是监听某个对象进入可视区，调用对应api，拿到数据返回数据

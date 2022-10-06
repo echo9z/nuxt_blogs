@@ -1,4 +1,4 @@
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs'
 // 配置中文国际化
 import 'dayjs/locale/zh-cn' 
 // 加载中文语言包 全局使用
