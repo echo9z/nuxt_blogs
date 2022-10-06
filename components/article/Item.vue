@@ -53,5 +53,13 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
-
+.title:hover{
+  text-decoration: underline;
+}
+.felx-4{
+  flex-basis: 40%
+}
+.felx-6{
+  flex-basis: 60%
+}
 </style>

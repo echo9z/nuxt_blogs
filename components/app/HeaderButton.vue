@@ -8,8 +8,8 @@
   <div class="flex justify-end">
     <!-- 右侧按按钮 -->
     <template v-if="profile.token">
+      <i class="icon-emo-laugh hidden xl:inline-block"></i>
       <NuxtLink class="h-[28px] leading-7 ml-[10px] hidden lg:inline-block" to="/member">
-        <i class="icon-emo-laugh"></i>
         {{profile.nickname ? profile.nickname : profile.username}}
       </NuxtLink>
       <CoolButton class="editor-btn" to="/editor">写文章</CoolButton>

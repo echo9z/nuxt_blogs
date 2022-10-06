@@ -19,6 +19,11 @@ export const getCategory = () => {
   return http.get('/api/category/list')
 }
 
+// 添加分类
+export const addCategory = (body) => {
+  return http.post('/api/category/createCate', body)
+}
+
 // 获取所有标签
 export const getTags = () => {
   return http.get('/api/tag/allTags')

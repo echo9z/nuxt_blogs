@@ -22,12 +22,17 @@
           @click="selectCity(item)">{{item.name}}</span>
       </template>
     </div>
+    <!-- 添加分类 -->
+    <div>
+      <AddTag />
+    </div>
   </div>
 </template>
 
 <script setup lang='ts'>
 import { onClickOutside } from '@vueuse/core'
 import { getCategory } from '~~/api/article'
+import AddTag from './AddTag'
 const emit = defineEmits(['change'])
 defineProps({
   cateName: {
