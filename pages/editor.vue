@@ -50,7 +50,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
 import { uploadImg, getTags, createArticle } from '../api/article'
 import MdEditor from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
@@ -58,6 +57,7 @@ definePageMeta({
   // 禁止使用的 layout的
   layout: false
 })
+
 // 提交是的表单数据
 const article = reactive({
   title: '',

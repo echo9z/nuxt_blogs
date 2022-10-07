@@ -1,8 +1,9 @@
-import axios, { AxiosRequestConfig } from "axios";
-import { useUserStore } from "~~/composables/useUserStore";
+import axios, { AxiosRequestConfig } from 'axios'
+import { useUserStore } from '~~/composables/useUserStore'
 const instance = axios.create({
   // axios 的一些配置
-  baseURL: 'http://127.0.0.1:18080'
+  // baseURL: 'http://127.0.0.1:18080'
+  baseURL: 'https://www.echouu.com'
   // timeout: 5000
 })
 // const userStore = useUserStore()
@@ -36,12 +37,13 @@ instance.interceptors.response.use(res => {
     // store.commit('user/setUser', {})
     // 在组件中的 url是’/user?a=10‘ $route.path = '/user'  $route.fullPath === user?a=10 $route当前路由的信息
     // router.currentRoute也是当前路由的信息 router.currentRoute.fullPath === user?a=10，这里是ref包装的得使用.value
-    // const fullPath = encodeURIComponent(router.currentRoute.value.fullPath) // 这里为什么需要转码，原因是/user?a=10&b=5 像&符合就是一个特殊字符，转码后会出现%214%那种转码的字符比如在某些网站请求url地址
+    // const fullPath = encodeURIComponent(router.fullPath) // 这里为什么需要转码，原因是/user?a=10&b=5 像&符合就是一个特殊字符，转码后会出现%214%那种转码的字符比如在某些网站请求url地址
     /** encodeURIComponent 转换url编码，防止解析地址出现问题，比如等值会出现特殊字符
      * > encodeURIComponent('?a=100&b=20')
         '%3Fa%3D100%26b%3D20'
      */
     // 编程导航跳转值 login页面
+    navigateTo('/login')
     // router.push({ path: '/login', query: { redirectUrl: fullPath } }) // login?redirectUrl=当前路由地址
   }
   return Promise.reject(err.response)
