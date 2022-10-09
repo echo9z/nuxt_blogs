@@ -25,7 +25,7 @@
         </div>
         <div class="flex text-gray-500 text-xs flex-col ">
           <div class="whitespace-nowrap px-1">
-            <span>{{publishTime}}</span>
+            <span>{{useFormatDate(articleItem.publishTime, 'YYYY年MM月DD')}}</span>
           </div>
           <div class="tags mt-[5px]">
             <NuxtLink to="/" v-for="tag in articleItem.tags" :key="tag.id" class="text-center px-1">
@@ -47,10 +47,7 @@ const props = defineProps({
     default: () => {}
   }
 })
-const publishTime = ref('')
-onMounted(() => {
-  publishTime.value = useFormatDate(props.articleItem.publishTime, 'YYYY年MM月DD')
-})
+
 </script>
 <style lang="scss" scoped>
 .title:hover{

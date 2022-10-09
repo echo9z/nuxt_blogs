@@ -30,7 +30,7 @@
         </h1>
         <div class="tag center">
           <ul class="flex flex-wrap">
-            <li class="li-style" :class="{active: search.category === null}" @click="tagHandler(null)" >全部</li>
+            <li class="li-style" :class="{active: search.tag === null}" @click="tagHandler(null)" >全部</li>
             <li class="li-style" :class="{active: search.tag === tag.id}" v-for="tag in tagsArr" :key="tag.id" @click="tagHandler(tag.id)">
               <NuxtLink>
                 {{tag.name}}

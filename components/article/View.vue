@@ -29,6 +29,7 @@
 
 <script lang="ts" setup>
 import { findArticleList, IFindLimit } from '~~/api/article'
+import { useFormatDate } from '~~/utils/day'
 const props = defineProps({
   search: {
     type: Object,
@@ -70,7 +71,7 @@ const articleDetail = (id) => {
 }
 
 const res = await findArticleList(reqParams)
-total.value = res.data.total
+total.value = res.data.totalNum
 articleList.value = res.data.list
 
 </script>

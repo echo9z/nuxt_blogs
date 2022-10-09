@@ -66,6 +66,8 @@ definePageMeta({
 const route = useRoute()
 const article = ref(null)
 const res = await getArticleById(route.params.id)
+res.data.create_time = useFormatDate(res.data.create_time, 'YYYY年MM月DD')
+res.data.update_time = useFormatDate(res.data.update_time, 'YYYY年MM月DD')
 article.value = res.data
 
 useHead({
@@ -80,11 +82,6 @@ const catalogList = ref([])
 const onGetCatalog = (list) => {
   catalogList.value = list
 }
-
-onMounted(() => {
-  article.value.create_time = useFormatDate(res.data.create_time, 'YYYY年MM月DD')
-  article.value.update_time = useFormatDate(res.data.update_time, 'YYYY年MM月DD')
-})
 
 </script>
 <style lang="scss" scoped>
