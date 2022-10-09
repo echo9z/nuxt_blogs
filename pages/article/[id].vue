@@ -6,7 +6,7 @@
 !-->
 <template>
   <div class="w-full flex" v-if="article">
-    <div class="pt-[18px] pb-[30px] px-[10px] md:px-[35px] w-full md:w-[950px] md:mt-4 bg-white shadow-lg rounded-md">
+    <div class="pt-[18px] pb-[30px] px-[10px] md:px-[35px] w-full lg:w-[950px] md:mt-4 bg-white shadow-lg rounded-md">
       <!-- 标题 -->
       <div>
         <h1 class="md:text-4xl text-xl title font-bold md:pt-5">{{article.title}}</h1>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <!-- 左侧文章目录 -->
-    <div class="catalog md:w-[200px] lg:w-[300px] hidden md:block mt-4 w-full ml-2.5">
+    <div class="catalog md:w-[200px] lg:w-[300px] hidden lg:block mt-4 w-full ml-2.5">
       <div class="bg-white rounded shadow-md p-[20px]">
         <p>文章目录</p>
         <ul class="pl-[20px]">
