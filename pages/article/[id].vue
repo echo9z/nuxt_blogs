@@ -6,7 +6,7 @@
 !-->
 <template>
   <div class="w-full flex" v-if="article">
-    <div class="art w-[950px] md:mt-4 bg-white shadow-lg rounded-md">
+    <div class="pt-[18px] pb-[30px] px-[10px] md:px-[35px] w-full md:w-[950px] md:mt-4 bg-white shadow-lg rounded-md">
       <!-- 标题 -->
       <div>
         <h1 class="md:text-4xl text-xl title font-bold md:pt-5">{{article.title}}</h1>
