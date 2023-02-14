@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apiSecret: '123',
     public: {
-      apiBase: 'http://127.0.0.1:18080'
+      apiBase: 'https://www.echouu.com'
     }
   },
   server: {

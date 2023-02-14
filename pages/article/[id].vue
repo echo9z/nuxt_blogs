@@ -66,6 +66,7 @@ definePageMeta({
 const route = useRoute()
 const article = ref(null)
 const res = await getArticleById(route.params.id)
+
 res.data.create_time = useFormatDate(res.data.create_time, 'YYYY年MM月DD')
 res.data.update_time = useFormatDate(res.data.update_time, 'YYYY年MM月DD')
 article.value = res.data

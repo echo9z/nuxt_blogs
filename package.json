@@ -3,34 +3,36 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev -p 18081 -o",
-    "start:prd": "NITRO_PORT=18081 node .output/server/index.mjs",
+    "start:prod": "NITRO_PORT=18081 node .output/server/index.mjs",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^5.3.3",
-    "@pinia/nuxt": "^0.4.2",
+    "@nuxtjs/tailwindcss": "^6.4.0",
+    "@pinia/nuxt": "^0.4.6",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.38.1",
-    "@vueuse/core": "^9.3.0",
-    "@vueuse/nuxt": "^9.2.0",
+    "@vueuse/core": "^9.12.0",
+    "@vueuse/nuxt": "^9.12.0",
     "eslint": "^8.0.1",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^9.5.1",
-    "nuxt": "3.0.0-rc.11",
+    "nuxt": "^3.2.0",
     "sass": "^1.55.0",
     "typescript": "*"
   },
   "dependencies": {
     "axios": "^0.27.2",
     "dayjs": "^1.11.5",
-    "md-editor-v3": "^2.3.0",
+    "md-editor-v3": "^2.8.0",
+    "pinia": "^2.0.30",
     "pinia-plugin-persistedstate": "^2.2.0",
     "vee-validate": "^4.6.10",
+    "vue": "^3.2.47",
     "vue3-lazyload": "^0.3.6"
   }
 }

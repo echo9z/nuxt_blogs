@@ -57,7 +57,7 @@ onMounted(() => {
 })
 
 </script>
-<style lang='less' scoped>
+<style lang='scss' scoped>
 .down {
   &-enter {
     &-from { // 进入时
