@@ -1,5 +1,5 @@
 <!--
-* @description 
+* @description 标签组件
 * @fileName Tags.vue
 * @author echo9z
 * @date 2022/10/03 14:52:40
@@ -11,7 +11,8 @@
     </div>
     <div class="tags flex flex-wrap justify-evenly mb-[15px]">
       <NuxtLink class="block h-7 mt-2 bg-black rounded-lg leading-7 px-[8px] text-[12px] text-white hover:text-yellow-200 hover:shadow-lg"
-        v-for="tag in tagsArr" :key="tag.id">
+        v-for="tag in tagsArr" :key="tag.id"
+        :to="{ path: '/search', query: { tagId: tag.id, tagName: tag.name } }">
         {{tag.name}}
       </NuxtLink>
     </div>

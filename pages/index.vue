@@ -14,7 +14,7 @@
         <CoolFont class="cool-font xl:w-[800px]" />
       </div>
     </div>
-    <!-- 文章 -->
+    <!-- 文章列表 -->
     <div>
       <ArticleView />
     </div>

@@ -24,7 +24,7 @@
 </template>
 
 <script lang='ts' setup >
-import { computed, defineProps, defineEmits, watch, ref } from 'vue'
+import { computed, watch, ref } from 'vue'
 const emit = defineEmits(['currentChange'])
 const props = defineProps({
   totalPage: { // 一共有多少行，一共有100行数据

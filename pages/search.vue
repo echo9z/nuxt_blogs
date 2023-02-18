@@ -14,8 +14,11 @@
         </h1>
         <div class="cate center">
           <ul class="flex flex-wrap">
-            <li class="li-style" :class="{active: search.category === null}"  @click="cateHandler(null)" >全部</li>
-            <li class="li-style" :class="{active: search.category === cate.id}" v-for="cate in catesList" :key="cate.id" @click="cateHandler(cate.id)">
+            <li class="li-style" :class="{active: search.category == null}" 
+              @click="cateHandler(null)" >全部</li>
+            <li class="li-style" :class="{active: search.category == cate.id}"
+              v-for="cate in catesList" :key="cate.id"
+              @click="cateHandler(cate)">
               <NuxtLink>
                 {{cate.name}}
               </NuxtLink>
@@ -30,8 +33,14 @@
         </h1>
         <div class="tag center">
           <ul class="flex flex-wrap">
-            <li class="li-style" :class="{active: search.tag === null}" @click="tagHandler(null)" >全部</li>
-            <li class="li-style" :class="{active: search.tag === tag.id}" v-for="tag in tagsArr" :key="tag.id" @click="tagHandler(tag.id)">
+            <li class="li-style" :class="{active: search.tag == null}"
+              @click="tagHandler(null)" >
+              全部
+            </li>
+            <li class="li-style" :class="{active: search.tag == tag.id}"
+              v-for="tag in tagsArr" :key="tag.id"
+              @click="tagHandler(tag)"
+            >
               <NuxtLink>
                 {{tag.name}}
               </NuxtLink>
@@ -64,19 +73,41 @@ catesList.value = cates.data.list
 const search = reactive({
   keyword: null,
   category: null,
-  tag: null
+  tag: null,
+  cateName: null, // 分类名
+  tagName: null // 标签名
 })
 
-watch(() => route.query.keyword, (newValue: string) => {
-  search.keyword = newValue
+watch(() => route.query, (query: string) => {
+  search.keyword = query?.keyword || null
+  search.tag = query?.tag || null
+  search.tagName = query?.tagName || null
+  
+  search.category = query?.category || null
+  search.cateName = query?.cateName || null
+  console.log(search);
 }, { immediate: true })
 
-const cateHandler = (id) => {
-  search.category = id
+const cateHandler = (cate) => {
+  search.category = cate ? cate.id : null
+  search.cateName = cate ? cate.name : null
+
+  navigateTo({
+    path: '/search',
+    query: { category: search.category , cateName: search.cateName,
+      tag: search.tag, tagName: search.tagName }
+  })
 }
 
-const tagHandler = (id) => {
-  search.tag = id
+const tagHandler = (tag) => {
+  search.tag = tag ? tag.id : null
+  search.tagName = tag ? tag.name : null
+
+  navigateTo({
+    path: '/search',
+    query: { tag: search.tag, tagName: search.tagName,
+      category: search.category, cateName: search.cateName }
+  })
 }
 
 </script>

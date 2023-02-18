@@ -18,10 +18,10 @@
           <NuxtLink class="home" to='/' >首页</NuxtLink>
         </li>
         <li v-for="(item, index) in navList" :key="item.id">
-        <NuxtLink :to="item.path">
-          {{item.pageName}}
-        </NuxtLink> 
-      </li>
+          <NuxtLink :to="item.path">
+            {{item.pageName}}
+          </NuxtLink> 
+        </li>
       </ul>
     </div>
   </div>

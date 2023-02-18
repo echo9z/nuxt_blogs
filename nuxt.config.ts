@@ -6,24 +6,33 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apiSecret: '123',
     public: {
-      apiBase: 'https://www.echouu.com'
+      BASE_API_HOST: 'http://127.0.0.1:18080',
+      apiBase: '/api'
     }
   },
-  server: {
-    // port: 18081,
-    // strictPort: true,
-    proxy: {
-      // '/api': {
-      //   target: 'http://127.0.0.1:18080',
-      //   changeOrigin: true,
-      //   // rewrite: (path) => path.replace(/^\/api/, '')
-      // },
-      '/api': {
-        target: 'https://v.api.aa1.cn',
-        changeOrigin: true,
-      },
-    }
+  devServer: {
+    host: '0.0.0.0',
+    port: 18081
   },
+  // routeRules: {
+  //   '/api': { proxy: 'http://127.0.0.1:18080' },
+  // },
+  // server: {
+  //   // port: 18081,
+  //   // open: true, // 运行自动打开浏览器
+  //   // strictPort: true,
+  //   proxy: {
+  //     // '/api': {
+  //     //   target: 'http://127.0.0.1:18080',
+  //     //   changeOrigin: true,
+  //     //   // rewrite: (path) => path.replace(/^\/api/, '')
+  //     // },
+  //     '/api': {
+  //       target: 'https://v.api.aa1.cn',
+  //       changeOrigin: true,
+  //     },
+  //   }
+  // },
   alias: {
     "~": "/<rootDir>",
     "@": "/<rootDir>",

@@ -24,6 +24,7 @@
 // const navList: string[] = ['文章', '归档', '留言', '关于', '有链']
 const navStore = useNavStore()
 navStore.getList()
+
 const navList = computed(() => {
   return navStore.list
 })

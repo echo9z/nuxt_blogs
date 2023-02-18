@@ -1,9 +1,13 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import { useUserStore } from '~~/composables/useUserStore'
+
+const url = process.env?.NEST_API || '127.0.0.1';
+console.log(url);
 const instance = axios.create({
   // axios 的一些配置
   // baseURL: 'http://127.0.0.1:18080'
   baseURL: 'https://www.echouu.com'
+  // baseURL: `http://${url}:18080`,
   // timeout: 5000
 })
 // const userStore = useUserStore()
@@ -15,7 +19,7 @@ instance.interceptors.request.use((config: AxiosRequestConfig) => {
   const { profile } = useUserStore()
   // 判断是否有token
   if (profile.token) {
-    config.headers.Authorization = `Bearer ${profile.token}`
+    config.headers.Authorization = profile.token
     // config.headers.Authorization = `Bearer `
   }
   return config

@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, ref, onMounted } from 'vue'
 defineEmits(['tagClick'])
 const props = defineProps({
   name: {
