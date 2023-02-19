@@ -26,24 +26,24 @@ const article = ref(null)
 const res = await getArticleById(route.params.id)
 if (res.status === 200) {
   article.value = res.data
+
+  article.value.create_time = useFormatDate(article.value.create_time, 'YYYY年MM月DD')
+  article.value.update_time = useFormatDate(article.value.update_time, 'YYYY年MM月DD')
+
+  useHead({
+    titleTemplate: (productCategory) => { // 动态标题
+      return productCategory
+        ? `${article.value.title} - ${productCategory}`
+        : productCategory
+    }
+  })
 }
 
 // import Http from '~~/utils/http'
 // const res = await Http.get(`/api/articles/${route.params.id}`)
-
 // if (res.status === 200) {
 //   article.value = res.data
 // }
-article.value.create_time = useFormatDate(article.value.create_time, 'YYYY年MM月DD')
-article.value.update_time = useFormatDate(article.value.update_time, 'YYYY年MM月DD')
-
-useHead({
-  titleTemplate: (productCategory) => { // 动态标题
-    return productCategory
-      ? `${article.value.title} - ${productCategory}`
-      : productCategory
-  }
-})
 
 // 视图等待数据更新，再一并渲染
 // await nextTick()

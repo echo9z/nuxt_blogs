@@ -4,7 +4,7 @@ export function useAbout() {
 
   👋  你好啊，我叫echo9z.
   💻  热爱前端开发
-  😄  这是我自己写的个人博客，目前博客功能还在完善，
+  😄  这是我自己写的博客网站，目前博客功能还在完善，主要折腾捣鼓～
   ⭐️  感谢你在茫茫互联网中找到了这里～
   
   ## ☀️ 博客主要使用到的技术如下：
@@ -30,7 +30,8 @@ export function useAbout() {
   
   ### 部署腾讯云：
   - 服务轻量云服务器
-  - Nginx 和 Redis部署在docker
+  - 前端Nuxt:3 和 服务端Nest:9 部署在docker 
+  - Nginx 反向代理 和 Redis部署在docker
   - 配置SSL证书，开启\`HTTPS\`访问
   - mysql基础版
   

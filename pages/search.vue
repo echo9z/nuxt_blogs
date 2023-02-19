@@ -85,29 +85,42 @@ watch(() => route.query, (query: string) => {
   
   search.category = query?.category || null
   search.cateName = query?.cateName || null
-  console.log(search);
 }, { immediate: true })
 
 const cateHandler = (cate) => {
   search.category = cate ? cate.id : null
   search.cateName = cate ? cate.name : null
 
-  navigateTo({
-    path: '/search',
-    query: { category: search.category , cateName: search.cateName,
-      tag: search.tag, tagName: search.tagName }
-  })
+  if (cate) {
+    navigateTo({
+      path: '/search',
+      query: { category: search.category , cateName: search.cateName,
+        tag: search.tag, tagName: search.tagName }
+    })
+  } else { // 为null
+    navigateTo({
+      path: '/search',
+      query: { tag: search.tag, tagName: search.tagName }
+    })
+  }
 }
 
 const tagHandler = (tag) => {
   search.tag = tag ? tag.id : null
   search.tagName = tag ? tag.name : null
-
-  navigateTo({
-    path: '/search',
-    query: { tag: search.tag, tagName: search.tagName,
-      category: search.category, cateName: search.cateName }
-  })
+  console.log(tag);
+  if (tag) {
+    navigateTo({
+      path: '/search',
+      query: { tag: search.tag, tagName: search.tagName,
+        category: search.category, cateName: search.cateName }
+    })
+  } else { // 为null
+    navigateTo({
+      path: '/search',
+      query: { category: search.category, cateName: search.cateName }
+    })
+  }
 }
 
 </script>

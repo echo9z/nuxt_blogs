@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apiSecret: '123',
     public: {
+      NEST_API: 'blogs',
       BASE_API_HOST: 'http://127.0.0.1:18080',
       apiBase: '/api'
     }

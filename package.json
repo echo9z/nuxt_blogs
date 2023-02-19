@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev -o",
+    "dev": "nuxt dev",
     "start:prod": "NITRO_PORT=18081 node .output/server/index.mjs",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

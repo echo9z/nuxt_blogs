@@ -14,7 +14,7 @@ COPY . .
 RUN npm config set registry https://registry.npm.taobao.org/
 
 # 清除缓存
-RUN npm cache clear -f
+RUN npm cache clean --force
 
 # npm 安装依赖
 RUN npm install
