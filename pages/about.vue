@@ -5,7 +5,7 @@
 * @date 2022/10/03 14:23:34
 !-->
 <template>
-  <div class="pt-[20px] pb-[30px] pl-[100px] bg-white shadow-md">
+  <div class="pt-[20px] pb-[30px] md:pl-[100px] pl-[20px] bg-white shadow-md">
     <h2 class="text-4xl font-bold">echo9z</h2>
     <md-editor
       v-model="content"
