@@ -21,7 +21,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 const emit = defineEmits(['uploadChange'])
-const src = ref < string >('assets/images/add-tag.png')
+const src = ref < string >('/assets/images/addtag.png')
 const postFile = ref(null)
 // 点击图片视图框
 const clickHandle = async () => {

@@ -28,7 +28,11 @@
             <span>{{useFormatDate(articleItem.publishTime, 'YYYY年MM月DD')}}</span>
           </div>
           <div class="tags mt-[5px]">
-            <NuxtLink to="/" v-for="tag in articleItem.tags" :key="tag.id" class="text-center px-1">
+            <NuxtLink 
+              v-for="tag in articleItem.tags"
+              :key="tag.id"
+              :to="{ path: '/search', query: { tag: tag.id, tagName: tag.name } }"
+              class="text-center px-1">
               {{tag.name}}
             </NuxtLink>
           </div>

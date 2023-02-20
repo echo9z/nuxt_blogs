@@ -32,7 +32,7 @@
               <i class="iconfont icon-tags"></i>
               <NuxtLink
                 v-for="tag in article.tags" :key="tag.id"
-                :to="{ path: '/search', query: { tag: tag.id, tagName: tag.name } }" class="art-tag">
+                :to="{ path: '/search', query: { tag: tag.id, tagName: tag.name } }" class="art-tag px-1">
                 {{tag.name}}
               </NuxtLink>
             </div>

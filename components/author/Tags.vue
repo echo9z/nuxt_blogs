@@ -10,7 +10,7 @@
       <h4 class="px-2.5 py-1.5">标签</h4>
     </div>
     <div class="tags flex flex-wrap justify-evenly mb-[15px]">
-      <NuxtLink class="block h-7 mt-2 bg-black rounded-lg leading-7 px-[8px] text-[12px] text-white hover:text-yellow-200 hover:shadow-lg"
+      <NuxtLink class="block h-7 mt-2 bg-black rounded-lg leading-7 px-[8px] text-[12px] text-white  shadow-lg"
         v-for="tag in tagsArr" :key="tag.id"
         :to="{ path: '/search', query: { tag: tag.id, tagName: tag.name } }">
         {{tag.name}}
@@ -26,4 +26,8 @@ const tags = await getTags()
 tagsArr.value = tags.data
 </script>
 <style lang="scss" scoped>
+.tags a:hover {
+  background-color: #faee38;
+  color: #000;
+}
 </style>

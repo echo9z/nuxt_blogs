@@ -12,9 +12,9 @@
     </div>
     <h2 class="text-center text-2xl">echo9z</h2>
     <div class="text-center mt-2">
-      <h5>每日一言</h5>
+      <h5>座右铭</h5>
       <p class="text-sm mt-2">
-        不断将数组从中间位置划分成问题相同的子数组 —— 伴我同行
+        但行好事，莫问前程 —— 伴我同行
       </p>
     </div>
   </div>
