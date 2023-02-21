@@ -5,7 +5,7 @@
  * @date 2022/09/27 14:41:43
 !-->
 <template>
-  <div class="pagination flex justify-start px-[10px] py-[30px]">
+  <div class="pagination flex justify-start text-sm sm:text-base md:px-[10px] py-[18px] md:py-[30px]">
     <a href="javascript:;" @click="goIndex(1)">首页</a>
     <a href="javascript:;" @click="changePage(currentPage-1)" :class="{ disabled: currentPage <= 1 }">上一页</a>
     <span v-if="pager.start > 1">...</span>

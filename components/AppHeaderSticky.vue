@@ -44,7 +44,6 @@ const showSticky = computed(() => {
 }
 .app-header-sticky {
   width: 100%;
-  height: 80px;
   position: fixed;
   left: 0;
   top: 0;
