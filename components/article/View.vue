@@ -29,7 +29,6 @@
 
 <script lang="ts" setup>
 import { findArticleList, IFindLimit } from '~~/api/article'
-import { useFormatDate } from '~~/utils/day'
 const props = defineProps({
   search: {
     type: Object,
@@ -50,6 +49,7 @@ watch(() => props, () => {
   reqParams.category = props.search.category
   reqParams.tag = props.search.tag
   reqParams.keyword = props.search.keyword
+  reqParams.page = 1
 }, { immediate: true, deep: true })
 
 const articleList = ref([])
