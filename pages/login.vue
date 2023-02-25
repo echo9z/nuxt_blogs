@@ -29,6 +29,7 @@
               name="password"
               v-model="password"
               @blur="passwordChange"
+              @keyup.enter="submit"
               type="password" placeholder="请输入密码" />
           </div>
           <div class="error" v-if="passwordError">

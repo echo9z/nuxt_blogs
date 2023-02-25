@@ -5,8 +5,8 @@ import { useUserStore } from '~~/composables/useUserStore'
 // console.log(url);
 const instance = axios.create({
   // axios 的一些配置
-  baseURL: 'http://127.0.0.1:18080'
-  // baseURL: 'https://www.echouu.com'
+  // baseURL: 'http://127.0.0.1:18080'
+  baseURL: 'https://www.echouu.com'
   // baseURL: `http://${url}:18080`
   // timeout: 5000
 })
