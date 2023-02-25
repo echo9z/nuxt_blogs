@@ -11,11 +11,11 @@ export function useAbout() {
   
   ### 前端 博客页（不分前后台）：
   - TS + Nuxt3（存在坑）
-  - UI库使用 tailwindcss
+  - CSS院子库 tailwindcss
   - 状态集中管理工具 Pinia
   - 前端路由 Vue-Router
   - markdown格式渲染工具 [md-editor-v3](https://github.com/imzbf/md-editor-v3)
-  - 表单校验 vee-validate
+  - 表单校验 [vee-validate]()
   - 组件数据懒加载 vueuse
   
   ### 后端：
@@ -30,7 +30,8 @@ export function useAbout() {
   
   ### 部署腾讯云：
   - 服务轻量云服务器
-  - 前端Nuxt:3 和 服务端Nest:9 部署在docker 
+  - gogs + drone + docker 进行CI/CD自动化部署
+  - 前端Nuxtjs:3 和 服务端Nestjs:9 build docker镜像
   - Nginx 反向代理 和 Redis部署在docker
   - 配置SSL证书，开启\`HTTPS\`访问
   - mysql基础版
