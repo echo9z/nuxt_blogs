@@ -10,8 +10,8 @@ export function useAbout() {
   ## ☀️ 博客主要使用到的技术如下：
   
   ### 前端 博客页（不分前后台）：
-  - TS + Nuxt3（存在坑）
-  - CSS院子库 tailwindcss
+  - TS + [Nuxt3]()（存在坑）
+  - CSS元子库 [Tailwind css](https://www.tailwindcss.cn/)
   - 状态集中管理工具 [Pinia](https://pinia.vuejs.org/zh/)
   - 前端路由 Vue-Router
   - markdown格式渲染工具 [md-editor-v3](https://github.com/imzbf/md-editor-v3)
