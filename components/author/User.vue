@@ -12,18 +12,30 @@
     </div>
     <h2 class="text-center text-2xl">echo9z</h2>
     <div class="text-center mt-2">
-      <h5>座右铭</h5>
-      <p class="text-sm mt-2">
-        但行好事，莫问前程 —— 伴我同行
+      <h5>ToDay · SayHi</h5>
+      <p class="text-sm mt-2" v-if="SayHi.uuid">
+        {{ SayHi.hitokoto }} —— {{ SayHi.creator }}
       </p>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-// import http from '~~/utils/request'
-// const talk = await http.get('https://v.api.aa1.cn/api/yiyan/index.php')
-// console.log(talk);
+import { getSayHi } from '~~/api/home'
+const SayHi = reactive({
+  uuid: '',
+  hitokoto: '',
+  creator: ''
+})
+getSayHi().then((res) => {
+  console.log(res)
+  const { data } = res
+  if (res.status === 200) {
+    SayHi.uuid = data.uuid
+    SayHi.hitokoto = data.hitokoto
+    SayHi.creator = data.creator
+  }
+})
 
 </script>
 <style lang="scss" scoped>
