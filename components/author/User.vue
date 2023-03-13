@@ -28,7 +28,6 @@ const SayHi = reactive({
   creator: ''
 })
 getSayHi().then((res) => {
-  console.log(res)
   const { data } = res
   if (res.status === 200) {
     SayHi.uuid = data.uuid
