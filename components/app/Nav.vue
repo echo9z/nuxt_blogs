@@ -5,7 +5,7 @@
 * @date 2022/09/26 14:01:55
 !-->
 <template>
-  <div class="flex-2 hidden sm:flex h-full mr-1" >
+  <div class="nav-b flex-2 hidden sm:flex h-full mr-1" >
     <ul class="flex items-center">
       <li class="nav-style">
         <NuxtLink class="home" to='/' >首页</NuxtLink>
@@ -32,5 +32,8 @@ const navList = computed(() => {
 <style lang="scss" scoped>
 .nav-style{
   @apply break-all ml-4 lg:ml-10 h-full flex items-center box-border cursor-pointer;
+}
+.nav-b ul li > a {
+  letter-spacing: 0.05em; /** 字体间距 */
 }
 </style>

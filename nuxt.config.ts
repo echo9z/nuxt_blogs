@@ -42,8 +42,8 @@ export default defineNuxtConfig({
   },
   css: ["/assets/css/icon.css", '/assets/css/index.css'],
   modules: [
-    ['@vueuse/nuxt'],
-    ['@nuxtjs/tailwindcss'],
+    '@vueuse/nuxt',
+    '@nuxtjs/tailwindcss',
     [
       '@pinia/nuxt',
       {
@@ -53,5 +53,7 @@ export default defineNuxtConfig({
         ],
       },
     ],
+    '@element-plus/nuxt'
   ],
+  elementPlus: { /** Options */ }
 })

@@ -13,7 +13,7 @@
       <NuxtLink class="block h-7 mt-2 bg-black rounded-lg leading-7 px-[8px] text-[12px] text-white  shadow-lg"
         v-for="tag in tagsArr" :key="tag.id"
         :to="{ path: '/search', query: { tag: tag.id, tagName: tag.name } }">
-        {{tag.name}}
+        {{ tag.name }}
       </NuxtLink>
     </div>
   </div>
@@ -26,8 +26,13 @@ const tags = await getTags()
 tagsArr.value = tags.data
 </script>
 <style lang="scss" scoped>
+.tags a{
+  // will-change: filter;
+  transition: all 300ms;
+}
 .tags a:hover {
   background-color: #faee38;
   color: #000;
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 </style>
