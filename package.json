@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "count-to-v3": "^1.1.2",
     "dayjs": "^1.11.7",
     "md-editor-v3": "^2.8.0",
     "pinia": "^2.0.30",

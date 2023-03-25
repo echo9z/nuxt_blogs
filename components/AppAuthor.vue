@@ -18,4 +18,5 @@
 import User from './author/User'
 import Statistics from './author/Statistics'
 import Tags from './author/Tags'
+
 </script>

@@ -10,7 +10,8 @@
       <li class="w-10 text-center" v-for="(item, index) in count.data" :key="index">
         <h3 class="lg:text-lg font-bold">{{item.name}}</h3>
         <p>
-          <span>{{item.count}}</span>
+          <!-- <span>{{item.count}}</span> -->
+          <CountTo :startVal="1" :endVal="item.count" :duration="3000" />
         </p>
       </li>
     </ul>
@@ -18,6 +19,7 @@
 </template>
 
 <script lang="ts" setup>
+import { CountTo } from 'count-to-v3'
 import { getCount } from '~~/api/home'
 const count = ref(null)
 count.value = await getCount()
