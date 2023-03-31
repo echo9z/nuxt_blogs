@@ -60,13 +60,15 @@ onClickOutside(popup, (event) => { showLayer.value = false })
     left: -10px;
     // width: 100%;
     height: 0; // 高度0
-    opacity: 0; // 透明度0
+    // opacity: 0; // 透明度0
+    display: none;
     transition: all .5s .1s;
     z-index: 100;
     &.open {
       // .layer.open 交集，添加显示layer弹出层
       height: 132px;
-      opacity: 1;
+      // opacity: 1;
+      display: block;
     }
 
     > :before {

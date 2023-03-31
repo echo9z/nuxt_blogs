@@ -24,7 +24,7 @@
           :previewOnly="true"
         />
         <div>
-          <div class="flex justify-between items-center mt-2">
+          <div class="flex justify-between items-end sm:items-center mt-2 sm:flex-row flex-col text-sm sm:text-base">
             <p>
               最后编辑于：{{article.update_time}}
             </p>
@@ -78,6 +78,11 @@ const onGetCatalog = (list: any) => {
 }
 </script>
 <style lang="scss" scoped>
+.art-tag:hover {
+  color: #000;
+  background-color: yellow;
+  border-radius: 10px;
+}
 .catalog {
   ul li {
     text-overflow: ellipsis;

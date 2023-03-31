@@ -146,6 +146,7 @@ watch(() => props, () => {
     border-radius: 4px;
     min-width: 30px;
     text-align: center;
+    border-radius: 10px;
     &:hover {
       color: red;
     }

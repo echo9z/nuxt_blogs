@@ -21,10 +21,10 @@ export const useUserStore = defineStore('user', {
   getters: {},
   actions: {
     // 修改用户信息对象，payload就是用户信息对象
-    setUser (payload) {
+    setUser (payload: any) {
       this.profile = payload
     },
-    setRedirectUrl (redirectUrl) {
+    setRedirectUrl (redirectUrl: any) {
       this.redirectUrl = redirectUrl
     }
   },

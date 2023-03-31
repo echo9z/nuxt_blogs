@@ -78,11 +78,11 @@ const htmlChanged = (html) => {
 const onUploadImg = async (files, callback) => {
   const res = await Promise.all(
     files.map((file) => {
-      console.log(file)
+      // console.log(file)
       // eslint-disable-next-line promise/param-names
       return new Promise((rev, rej) => {
         uploadImg(file).then((res) => {
-          console.log(res)
+          // console.log(res)
           rev(res)
         }).catch((error) => rej(error))
       })

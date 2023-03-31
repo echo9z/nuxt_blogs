@@ -6,7 +6,7 @@
 !-->
 <template>
   <div>
-    <p class="gradient-text text-center text-3xl md:text-4xl lg:text-6xl">
+    <p class="gradient-text text-center font-bold text-3xl md:text-4xl lg:text-6xl">
       <span ref="text"></span>
     </p>
   </div>

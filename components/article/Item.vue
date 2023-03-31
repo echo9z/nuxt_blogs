@@ -28,7 +28,7 @@
             <span>{{useFormatDate(articleItem.publishTime, 'YYYY年MM月DD')}}</span>
           </div>
           <div class="tags mt-[5px]">
-            <NuxtLink 
+            <NuxtLink
               v-for="tag in articleItem.tags"
               :key="tag.id"
               :to="{ path: '/search', query: { tag: tag.id, tagName: tag.name } }"
@@ -62,5 +62,10 @@ const props = defineProps({
 }
 .felx-6{
   flex-basis: 60%
+}
+.tags a:hover {
+  color: #000;
+  background-color: yellow;
+  border-radius: 10px;
 }
 </style>
