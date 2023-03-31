@@ -15,7 +15,6 @@
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.4",
     "@nuxtjs/tailwindcss": "^6.6.5",
-    "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
     "@pinia/nuxt": "^0.4.7",
     "@types/node": "^18.14.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
@@ -35,6 +34,7 @@
     "typescript": "*"
   },
   "dependencies": {
+    "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
     "axios": "^0.27.2",
     "count-to-v3": "^1.1.2",
     "dayjs": "^1.11.7",
