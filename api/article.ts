@@ -1,4 +1,5 @@
-import http from '../utils/request'
+// import http from '../utils/request'
+import http from '../utils/http'
 export interface IFindLimit {
     page: number;
     pageSize: number;

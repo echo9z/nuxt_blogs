@@ -5,8 +5,8 @@
 * @date 2022/09/26 14:08:12
 !-->
 <template>
-  <div class="flex-1 flex justify-center md:justify-end items-center h-full relative">
-    <i class="iconfont icon-search absolute right-2" @click="onSearch(keyword)"></i>
+  <div class="search flex-1 flex justify-center md:justify-end items-center h-full relative">
+    <i class="iconfont icon-search absolute right-1 text-stone-950" @click="onSearch(keyword)"></i>
     <input class="search-btn"
       v-model="keyword"
       type="text"
@@ -34,6 +34,6 @@ const onSearch = (searchText: string) => {
 </script>
 <style lang="scss" scoped>
 .search-btn{
-  @apply pl-4 box-border outline-none h-[30px] rounded-full w-full md:w-[180px] border-[1px] border-solid border-black
+  @apply pl-4 pr-7 box-border outline-none h-[30px] rounded-full w-full md:w-[180px] border-[1px] border-solid text-stone-950
 }
 </style>

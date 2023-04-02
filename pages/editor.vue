@@ -140,7 +140,7 @@ const checkedTags = (checkedTags) => {
 const createAricle = async () => {
   article.status = 'publish'
   const res = await createArticle(article)
-  console.log(res);
+  // console.log(res);
   navigateTo(`/article/${res.data.articleId}`)
 }
 </script>

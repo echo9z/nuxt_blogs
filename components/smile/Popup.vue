@@ -12,7 +12,7 @@
       <i v-else class="iconfont icon-emo-happy"></i>
     </div>
     <!-- 弹出层 -->
-    <div class="layer" :class="{open:showLayer}" >
+    <div class="layer shadow text-sm sm:text-base" :class="{open:showLayer}" >
       <ul>
         <li>
           <NuxtLink class="home" to='/' @click="showLayer = false">首页</NuxtLink>
@@ -66,17 +66,17 @@ onClickOutside(popup, (event) => { showLayer.value = false })
     z-index: 100;
     &.open {
       // .layer.open 交集，添加显示layer弹出层
-      height: 132px;
+      height: 100%;
       // opacity: 1;
       display: block;
     }
 
     > :before {
       content: '';
-      background-color: #fff;
+      background-color: #000;
       width: 10px;
       height: 10px;
-      border-top: 1px solid;
+      border-top: 1px solid #857f7f;;
       border-right: 1px solid;
       transform: rotate(-45deg);
       position: absolute;
@@ -87,10 +87,10 @@ onClickOutside(popup, (event) => { showLayer.value = false })
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: #fff;
+      background-color: #000;
       // justify-items: ;
       width: 60px;
-      border: 1px solid;
+      // border: 1px solid;
       border-radius: 0 0 15px 15px;
 
       li {
@@ -100,8 +100,7 @@ onClickOutside(popup, (event) => { showLayer.value = false })
 
         &:hover {
           >a {
-            color: green;
-            border-bottom: 1px solid red;
+            color: yellow;
           }
         }
       }

@@ -5,7 +5,7 @@
 * @date 2022/10/02 18:12:49
 !-->
 <template>
-  <div :class="{show: showSticky}" class="app-header-sticky bg-white w-full md:px-8 h-[45px] xl:h-[80px] lg:h-[70px] md:h-[60px] sm:h-[60px] shadow text-black">
+  <div :class="{show: showSticky}" class="app-header-sticky bg-black text-white w-full md:px-8 h-[45px] xl:h-[80px] lg:h-[70px] md:h-[60px] sm:h-[60px] shadow">
     <div v-show="showSticky" class="flex md:m-none m-auto w-full h-full items-center xl:max-w-screen-xl  ">
       <!-- logo -->
       <div class="logo">
@@ -26,9 +26,9 @@
 </template>
 
 <script lang="ts" setup>
-import Nav from './app/Nav.vue';
-import Search from './app/Search.vue';
-import HeaderButton from './app/HeaderButton.vue';
+import Nav from './app/Nav.vue'
+import Search from './app/Search.vue'
+import HeaderButton from './app/HeaderButton.vue'
 
 const { y } = useWindowScroll() // 结构y轴的卷曲高度
 const showSticky = computed(() => {
@@ -48,8 +48,9 @@ const showSticky = computed(() => {
   left: 0;
   top: 0;
   z-index: 9999;
-  background-color: #fff;
-  border-bottom: 1px solid #e4e4e4;
+  // background-color: #fff;
+  // border-bottom: 1px solid #e4e4e4;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   // 默认吸顶导航栏位置
   transform: translateY(-100%); // 默认位置向上移动到-80px位置
   opacity: 0; // 透明度为0，由0到1 渐变的显示吸顶

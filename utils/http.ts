@@ -36,6 +36,7 @@ const fetch = (url: string, options?: any, headers?: any): Promise<any> => {
         reject(error.value)
         return
       }
+
       const value = data.value // 响应的结果
       if (!value) {
         // 这里处理错你自定义的错误，例如code !== 1

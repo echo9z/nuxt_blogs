@@ -4,7 +4,7 @@
       <NuxtLoadingIndicator :color="color" />
       <!-- 这里是公共布局 这里的NuxtLayout内容会插入到layouts的default组件中 -->
       <!-- page下的所有出口 这个相当于路由出口 -->
-      <NuxtPage />
+      <NuxtPage :keepalive="{ include : 'ArticleView' }" />
     </NuxtLayout>
   </div>
 </template>

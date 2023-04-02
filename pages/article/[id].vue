@@ -6,8 +6,8 @@
 !-->
 <template>
   <transition>
-    <ArticleContent v-if="article && article.id" :artObj="article"/>
-    <ArticleSkeleton v-else />
+    <ArticleSkeleton v-if="!article && !article.id"  />
+    <ArticleContent v-else :article="article" />
   </transition>
 </template>
 
@@ -22,18 +22,28 @@ definePageMeta({
 })
 
 const route = useRoute()
-const article = ref(null)
+const article = reactive({
+  title: '',
+  create_time: '',
+  viewCount: 0,
+  content: '',
+  update_time: '',
+  tags: []
+})
 const res = await getArticleById(route.params.id)
-if (res.status === 200) {
-  article.value = res.data
 
-  article.value.create_time = useFormatDate(article.value.create_time, 'YYYY年MM月DD')
-  article.value.update_time = useFormatDate(article.value.update_time, 'YYYY年MM月DD')
+if (res.status === 200) {
+  article.title = res.data.title
+  article.create_time = useFormatDate(res.data.create_time, 'YYYY年MM月DD日')
+  article.update_time = useFormatDate(res.data.update_time, 'YYYY年MM月DD日')
+  article.content = res.data.content
+  article.viewCount = res.data.viewCount
+  article.tags = res.data.tags
 
   useHead({
     titleTemplate: (productCategory) => { // 动态标题
       return productCategory
-        ? `${article.value.title} - ${productCategory}`
+        ? `${article.title} - ${productCategory}`
         : productCategory
     }
   })

@@ -7,7 +7,7 @@
 <template>
   <div>
     <AppHeader />
-    <main class="flex xl:max-w-screen-xl m-auto w-full relative mb-[35px]">
+    <main class="flex xl:max-w-screen-xl m-auto w-full relative sm:mb-[35px]">
       <slot />
     </main>
     <AppFooter />

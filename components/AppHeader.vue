@@ -5,7 +5,7 @@
 * @date 2022/09/25 13:09:37
 !-->
 <template>
-  <header class="app-header bg-white w-full md:px-8 h-[45px] xl:h-[80px] lg:h-[70px] md:h-[60px] sm:h-[60px] shadow text-black">
+  <header class="app-header bg-black text-white w-full md:px-8 h-[45px] xl:h-[80px] lg:h-[70px] md:h-[60px] sm:h-[60px] shadow ">
     <div class="flex md:m-none m-auto w-full h-full items-center xl:max-w-screen-xl ">
       <!-- logo -->
       <Logo />

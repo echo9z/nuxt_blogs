@@ -9,9 +9,9 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 // 拓展 相对时间函数
 dayjs.extend(relativeTime) 
 
-export const useFormatDate = (date: Date, format: string = 'YYYY/MM/DD HH:mm:dd') => {
+export const useFormatDate = (date: string, format: string = 'YYYY/MM/DD HH:mm:dd') => {
   return dayjs(date).format(format)
 }
-export const useRelativeTime = (value: Date) => {
+export const useRelativeTime = (value: string) => {
   return dayjs(value).from(dayjs())
 }

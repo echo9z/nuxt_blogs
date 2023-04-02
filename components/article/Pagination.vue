@@ -52,7 +52,7 @@ const pageSize = ref(10)
 // 切换分页函数 跳转点击page页 或 上一页 或 下一页
 const changePage = (page) => {
   let newPage = page
-  console.log(newPage)
+  // console.log(newPage)
   if (newPage <= 1) {
     newPage = 1
   }

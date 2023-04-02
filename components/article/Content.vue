@@ -6,7 +6,7 @@
 !-->
 <template>
     <div class="w-full flex" >
-      <div class="pt-[18px] pb-[30px] px-[10px] md:px-[35px] w-full lg:w-[950px] md:mt-4 bg-white shadow-lg rounded-md">
+      <div class="pt-[18px] pb-[18px] sm:pb-[30px] px-[10px] md:px-[35px] w-full lg:w-[950px] md:mt-4 bg-white shadow-lg rounded-md">
         <!-- 标题 -->
         <div>
           <h1 class="md:text-4xl text-xl title font-bold md:pt-5">{{article.title}}</h1>
@@ -57,20 +57,20 @@
 import MdEditor from 'md-editor-v3'
 import 'md-editor-v3/lib/style.css'
 const props = defineProps({
-  artObj: {
+  article: {
     type: Object,
     default: null
   }
 })
 
-const article = reactive({
-    title: props.artObj.title,
-    create_time: props.artObj.create_time,
-    viewCount: props.artObj.viewCount,
-    content: props.artObj.content,
-    update_time: props.artObj.update_time,
-    tags: props.artObj.tags
-})
+// const article = reactive({
+//     title: props.artObj.title,
+//     create_time: props.artObj.create_time,
+//     viewCount: props.artObj.viewCount,
+//     content: props.artObj.content,
+//     update_time: props.artObj.update_time,
+//     tags: props.artObj.tags
+// })
 
 const catalogList = ref([])
 const onGetCatalog = (list: any) => {

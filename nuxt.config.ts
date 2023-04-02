@@ -27,7 +27,8 @@ export default defineNuxtConfig({
     apiSecret: '123',
     public: {
       NEST_API: 'blogs',
-      BASE_API_HOST: 'http://127.0.0.1:18080',
+      // BASE_API_HOST: 'http://127.0.0.1:18080',
+      BASE_API_HOST: 'https://www.echouu.com',
       apiBase: '/api',
     }
   },

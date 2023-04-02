@@ -1,4 +1,5 @@
-import http from '../utils/request'
+// import http from '../utils/request'
+import http from '../utils/http'
 import { SayHiObj } from './homeTypes'
 
 // 获取导航页
