@@ -18,8 +18,8 @@ RUN npm install -g npm@9.6.3
 RUN npm cache clean --force
 
 # npm 安装依赖
-# RUN npm install
-RUN npm ci
+RUN npm install
+# RUN npm ci
 RUN npm run build
 
 # Service hostname
