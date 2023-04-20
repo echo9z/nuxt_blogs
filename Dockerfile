@@ -1,4 +1,4 @@
-ARG NODE_VERSION=node:16.14.0
+ARG NODE_VERSION=node:16-alpine
 
 FROM $NODE_VERSION AS dependency-base
 
@@ -18,7 +18,8 @@ RUN npm install -g npm@9.6.3
 RUN npm cache clean --force
 
 # npm 安装依赖
-RUN npm install
+# RUN npm install
+RUN npm ci
 RUN npm run build
 
 # Service hostname
