@@ -59,6 +59,7 @@ definePageMeta({
   // 禁止使用的 layout的
   layout: false
 })
+const token = useCookie('token')
 const userStore = useUserStore()
 const form = useForm({ validationSchema: veeValidateSchema })
 const { value: username, errorMessage: usernameError, handleChange: usernameChange } = useField < string > ('username')
@@ -77,6 +78,7 @@ const submit = async () => {
     if (res.status === 200) {
       // 登录成功将用户信息存储到store中
       userStore.setUser(res.data.result)
+      token.value = res.data.result.token
       navigateTo('/') // 登录成功跳回到首页
     }
   } else {

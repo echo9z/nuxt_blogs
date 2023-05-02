@@ -25,9 +25,11 @@
 import { storeToRefs } from 'pinia'
 const userStore = useUserStore()
 const { profile } = storeToRefs(userStore)
+const token = useCookie('token')
 // 退出登录
 const logout = () => {
   userStore.$patch(state => {
+    token.value = null
     state.profile = {}
   })
 }

@@ -1,7 +1,7 @@
 // import http from '../utils/request'
 import http from '../utils/http'
 export interface IUserinfo {
-  username: number
+  username: string
   password: string
 }
 

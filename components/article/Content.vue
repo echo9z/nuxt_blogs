@@ -78,6 +78,12 @@ const onGetCatalog = (list: any) => {
 }
 </script>
 <style lang="scss" scoped>
+.md-editor{
+  --md-color: #000
+}
+.default-theme {
+  color: var(--md-color);
+}
 .art-tag:hover {
   color: #000;
   background-color: yellow;
