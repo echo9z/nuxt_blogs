@@ -4,5 +4,9 @@
   "types": [
     "@pinia/nuxt",
     "node"
-  ]
+  ],
+  "baseUrl": "./",
+  "paths": {
+    "@/*": ["src/*"]
+  }
 }

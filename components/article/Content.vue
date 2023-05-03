@@ -84,6 +84,9 @@ const onGetCatalog = (list: any) => {
 .default-theme {
   color: var(--md-color);
 }
+.md-editor .md-editor-content ::deep(.md-editor-preview-wrapper){
+  padding: 0
+}
 .art-tag:hover {
   color: #000;
   background-color: yellow;
