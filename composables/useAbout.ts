@@ -32,9 +32,8 @@ export function useAbout() {
   - 服务轻量云服务器
   - gogs + drone + docker 进行CI/CD自动化部署
   - 前端Nuxtjs:3 和 服务端Nestjs:9 build docker镜像
-  - Nginx 反向代理 和 Redis部署在docker
+  - Nginx 反向代理、Redis、mysql 部署在docker
   - 配置SSL证书，开启\`HTTPS\`访问
-  - mysql基础版
   
   ## 联系方式
   - Email：wang96m@qq.com
