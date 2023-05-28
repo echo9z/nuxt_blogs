@@ -63,6 +63,7 @@ export default defineNuxtConfig({
   },
   css: ["/assets/css/icon.css", '/assets/css/index.css'],
   modules: [
+    // 'nuxt-simple-sitemap',
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
     [
@@ -76,7 +77,6 @@ export default defineNuxtConfig({
     ],
     '@pinia-plugin-persistedstate/nuxt',
     '@element-plus/nuxt',
-    // 'nuxt-simple-sitemap',
   ],
   piniaPersistedstate: {
     cookieOptions: {
@@ -85,7 +85,7 @@ export default defineNuxtConfig({
     storage: 'localStorage'
   },
   // sitemap: {
-  //   siteUrl: 'https://echouu.com',
+  //   siteUrl: 'https://www.echouu.com',
   // },
   // nitro: {
   //   // prerender: {

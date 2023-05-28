@@ -18,7 +18,7 @@ import { useAppend } from '../../composables/useAppend'
 const props = defineProps({
   texts: {
     type: String,
-    default: 'Hello, 欢迎来到Echo9z的个人博客!',
+    default: '热爱 坚持 勇气 智慧 和不断前行'
   }
 })
 const text = ref(null)
